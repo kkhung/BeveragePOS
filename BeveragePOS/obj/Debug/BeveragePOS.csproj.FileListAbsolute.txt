@@ -1,1 +1,11 @@
 C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS.exe.config
+C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS.exe
+C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS.pdb
+C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.main.resources
+C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.Properties.Resources.resources
+C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.csproj.GenerateResource.Cache
+C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.exe
+C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.pdb
+C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS.mdf
+C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS_log.ldf
+C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.csprojResolveAssemblyReference.cache

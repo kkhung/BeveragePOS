@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="BeveragePOS">
+  <DataContextMoniker Name="/BeveragePOSDataContext" />
+  <nestedChildShapes>
+    <classShape Id="2fefc539-d1e8-48a3-b86c-2ae72e578651" absoluteBounds="3.5, 6.375, 2, 1.9068933105468755">
+      <DataClassMoniker Name="/BeveragePOSDataContext/Beverage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ff423d01-af20-4791-a132-9ebb3d0b7c85" absoluteBounds="3.515, 6.835, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fb1db22b-7988-483c-ade4-2c7af342431e" absoluteBounds="3.5, 1.25, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/BeveragePOSDataContext/SystemLog" />
+      <nestedChildShapes>
+        <elementListCompartment Id="753c7181-c50b-4e21-85b3-01c267eb8e77" absoluteBounds="3.515, 1.71, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="51639aa2-fad0-424e-abf0-6ecacf90e08a" absoluteBounds="0.75, 2.375, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/BeveragePOSDataContext/Employee" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fd8b8c47-8902-4961-8b09-13e0ca154969" absoluteBounds="0.765, 2.835, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a3575fe8-4342-4975-bf45-6ec1afb0376b" absoluteBounds="6.25, 3.375, 2, 1.9068933105468755">
+      <DataClassMoniker Name="/BeveragePOSDataContext/OrderDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c2b6ac04-d46b-48e1-82f7-957e5454d38c" absoluteBounds="6.265, 3.835, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f57315d3-749f-46ba-b15e-a99b480c351e" absoluteBounds="3.5, 3.5, 2, 1.5373050944010416">
+      <DataClassMoniker Name="/BeveragePOSDataContext/OrderMaster" />
+      <nestedChildShapes>
+        <elementListCompartment Id="824252a3-0586-428b-9300-c3fcf810fefb" absoluteBounds="3.515, 3.96, 1.9700000000000002, 0.97730509440104174" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.58115254720052); (3.5 : 2.58115254720052)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BeveragePOSDataContext/Employee/Employee_SystemLog" />
+      <nodes>
+        <classShapeMoniker Id="51639aa2-fad0-424e-abf0-6ecacf90e08a" />
+        <classShapeMoniker Id="fb1db22b-7988-483c-ade4-2c7af342431e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 7.32844665527344); (7.25 : 7.32844665527344); (7.25 : 5.28189331054688)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BeveragePOSDataContext/Beverage/Beverage_OrderDetail" />
+      <nodes>
+        <classShapeMoniker Id="2fefc539-d1e8-48a3-b86c-2ae72e578651" />
+        <classShapeMoniker Id="a3575fe8-4342-4975-bf45-6ec1afb0376b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 4.26865254720052); (6.25 : 4.26865254720052)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BeveragePOSDataContext/OrderMaster/OrderMaster_OrderDetail" />
+      <nodes>
+        <classShapeMoniker Id="f57315d3-749f-46ba-b15e-a99b480c351e" />
+        <classShapeMoniker Id="a3575fe8-4342-4975-bf45-6ec1afb0376b" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.70615254720052); (3.5 : 3.70615254720052)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/BeveragePOSDataContext/Employee/Employee_OrderMaster" />
+      <nodes>
+        <classShapeMoniker Id="51639aa2-fad0-424e-abf0-6ecacf90e08a" />
+        <classShapeMoniker Id="f57315d3-749f-46ba-b15e-a99b480c351e" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
