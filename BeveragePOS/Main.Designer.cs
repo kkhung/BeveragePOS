@@ -1,6 +1,6 @@
 ﻿namespace BeveragePOS
 {
-    partial class main
+    partial class Main
     {
         /// <summary>
         /// 設計工具所需的變數。
@@ -31,7 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.flpCatelogiesRegion = new System.Windows.Forms.FlowLayoutPanel();
             this.flpBeveragesRegion = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlChoosableSugarRegion = new System.Windows.Forms.Panel();
@@ -58,7 +59,7 @@
             this.lblDollar = new System.Windows.Forms.Label();
             this.btnPlus = new System.Windows.Forms.Button();
             this.btnMinus = new System.Windows.Forms.Button();
-            this.MouseClickTimer = new System.Windows.Forms.Timer(this.components);
+            this.mouseClickTimer = new System.Windows.Forms.Timer(this.components);
             this.lblTxtOrderNumber = new System.Windows.Forms.Label();
             this.lblNumOrderNumber = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
@@ -103,7 +104,7 @@
             // 
             // btnNoSugar
             // 
-            this.btnNoSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnNoSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnNoSugar.Location = new System.Drawing.Point(300, 0);
             this.btnNoSugar.Name = "btnNoSugar";
             this.btnNoSugar.Size = new System.Drawing.Size(75, 75);
@@ -114,7 +115,7 @@
             // 
             // btnQuarterSugar
             // 
-            this.btnQuarterSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnQuarterSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnQuarterSugar.Location = new System.Drawing.Point(225, 0);
             this.btnQuarterSugar.Name = "btnQuarterSugar";
             this.btnQuarterSugar.Size = new System.Drawing.Size(75, 75);
@@ -125,7 +126,7 @@
             // 
             // btnHalfSugar
             // 
-            this.btnHalfSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnHalfSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnHalfSugar.Location = new System.Drawing.Point(150, 0);
             this.btnHalfSugar.Name = "btnHalfSugar";
             this.btnHalfSugar.Size = new System.Drawing.Size(75, 75);
@@ -136,7 +137,7 @@
             // 
             // btnLessSugar
             // 
-            this.btnLessSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnLessSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnLessSugar.Location = new System.Drawing.Point(75, 0);
             this.btnLessSugar.Name = "btnLessSugar";
             this.btnLessSugar.Size = new System.Drawing.Size(75, 75);
@@ -147,7 +148,7 @@
             // 
             // btnFullSugar
             // 
-            this.btnFullSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnFullSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnFullSugar.Location = new System.Drawing.Point(0, 0);
             this.btnFullSugar.Name = "btnFullSugar";
             this.btnFullSugar.Size = new System.Drawing.Size(75, 75);
@@ -159,7 +160,7 @@
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnDelete.Location = new System.Drawing.Point(0, 425);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(450, 50);
@@ -170,7 +171,7 @@
             // 
             // btnWarm
             // 
-            this.btnWarm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnWarm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnWarm.Location = new System.Drawing.Point(300, 0);
             this.btnWarm.Name = "btnWarm";
             this.btnWarm.Size = new System.Drawing.Size(75, 75);
@@ -181,7 +182,7 @@
             // 
             // btnNoIce
             // 
-            this.btnNoIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnNoIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnNoIce.Location = new System.Drawing.Point(225, 0);
             this.btnNoIce.Name = "btnNoIce";
             this.btnNoIce.Size = new System.Drawing.Size(75, 75);
@@ -192,7 +193,7 @@
             // 
             // btnLittleIce
             // 
-            this.btnLittleIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnLittleIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnLittleIce.Location = new System.Drawing.Point(150, 0);
             this.btnLittleIce.Name = "btnLittleIce";
             this.btnLittleIce.Size = new System.Drawing.Size(75, 75);
@@ -203,7 +204,7 @@
             // 
             // btnLessIce
             // 
-            this.btnLessIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnLessIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnLessIce.Location = new System.Drawing.Point(75, 0);
             this.btnLessIce.Name = "btnLessIce";
             this.btnLessIce.Size = new System.Drawing.Size(75, 75);
@@ -214,7 +215,7 @@
             // 
             // btnMoreIce
             // 
-            this.btnMoreIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnMoreIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnMoreIce.Location = new System.Drawing.Point(0, 0);
             this.btnMoreIce.Name = "btnMoreIce";
             this.btnMoreIce.Size = new System.Drawing.Size(75, 75);
@@ -242,33 +243,41 @@
             this.dgvOrderDetail.AllowUserToDeleteRows = false;
             this.dgvOrderDetail.AllowUserToResizeColumns = false;
             this.dgvOrderDetail.AllowUserToResizeRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(200)))), ((int)(((byte)(182)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvOrderDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrderDetail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.dgvOrderDetail.BackgroundColor = System.Drawing.Color.White;
-            this.dgvOrderDetail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgvOrderDetail.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.dgvOrderDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvOrderDetail.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-            this.dgvOrderDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvOrderDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrderDetail.ColumnHeadersHeight = 50;
             this.dgvOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvOrderDetail.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgvOrderDetail.EnableHeadersVisualStyles = false;
+            this.dgvOrderDetail.GridColor = System.Drawing.Color.Black;
             this.dgvOrderDetail.Location = new System.Drawing.Point(0, 50);
             this.dgvOrderDetail.MultiSelect = false;
             this.dgvOrderDetail.Name = "dgvOrderDetail";
             this.dgvOrderDetail.ReadOnly = true;
             this.dgvOrderDetail.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvOrderDetail.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvOrderDetail.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvOrderDetail.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Empty;
+            this.dgvOrderDetail.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Empty;
             this.dgvOrderDetail.RowTemplate.DividerHeight = 1;
             this.dgvOrderDetail.RowTemplate.Height = 50;
             this.dgvOrderDetail.RowTemplate.ReadOnly = true;
@@ -291,7 +300,7 @@
             // btnLogout
             // 
             this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnLogout.Location = new System.Drawing.Point(375, 625);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(75, 75);
@@ -303,7 +312,7 @@
             // btnManage
             // 
             this.btnManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnManage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnManage.Location = new System.Drawing.Point(225, 625);
             this.btnManage.Name = "btnManage";
             this.btnManage.Size = new System.Drawing.Size(75, 75);
@@ -314,7 +323,7 @@
             // btnLog
             // 
             this.btnLog.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnLog.Location = new System.Drawing.Point(300, 625);
             this.btnLog.Name = "btnLog";
             this.btnLog.Size = new System.Drawing.Size(75, 75);
@@ -325,7 +334,7 @@
             // btnRingUp
             // 
             this.btnRingUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnRingUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btnRingUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnRingUp.Location = new System.Drawing.Point(0, 625);
             this.btnRingUp.Name = "btnRingUp";
             this.btnRingUp.Size = new System.Drawing.Size(225, 75);
@@ -337,7 +346,8 @@
             // lblTxtTotal
             // 
             this.lblTxtTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTxtTotal.ForeColor = System.Drawing.Color.White;
+            this.lblTxtTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.lblTxtTotal.ForeColor = System.Drawing.Color.Black;
             this.lblTxtTotal.Location = new System.Drawing.Point(0, 375);
             this.lblTxtTotal.Name = "lblTxtTotal";
             this.lblTxtTotal.Size = new System.Drawing.Size(75, 50);
@@ -348,7 +358,8 @@
             // lblNumTotal
             // 
             this.lblNumTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblNumTotal.ForeColor = System.Drawing.Color.White;
+            this.lblNumTotal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.lblNumTotal.ForeColor = System.Drawing.Color.Black;
             this.lblNumTotal.Location = new System.Drawing.Point(75, 375);
             this.lblNumTotal.Name = "lblNumTotal";
             this.lblNumTotal.Size = new System.Drawing.Size(300, 50);
@@ -359,7 +370,8 @@
             // lblDollar
             // 
             this.lblDollar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblDollar.ForeColor = System.Drawing.Color.White;
+            this.lblDollar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.lblDollar.ForeColor = System.Drawing.Color.Black;
             this.lblDollar.Location = new System.Drawing.Point(375, 375);
             this.lblDollar.Name = "lblDollar";
             this.lblDollar.Size = new System.Drawing.Size(75, 50);
@@ -370,7 +382,7 @@
             // btnPlus
             // 
             this.btnPlus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnPlus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnPlus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnPlus.Location = new System.Drawing.Point(375, 475);
             this.btnPlus.Name = "btnPlus";
             this.btnPlus.Size = new System.Drawing.Size(75, 75);
@@ -384,7 +396,7 @@
             // btnMinus
             // 
             this.btnMinus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnMinus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnMinus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
             this.btnMinus.Location = new System.Drawing.Point(375, 550);
             this.btnMinus.Name = "btnMinus";
             this.btnMinus.Size = new System.Drawing.Size(75, 75);
@@ -395,14 +407,14 @@
             this.btnMinus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnMinus_MouseDown);
             this.btnMinus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnMinus_MouseUp);
             // 
-            // MouseClickTimer
+            // mouseClickTimer
             // 
-            this.MouseClickTimer.Tick += new System.EventHandler(this.MouseClickTimer_Tick);
+            this.mouseClickTimer.Tick += new System.EventHandler(this.mouseClickTimer_Tick);
             // 
             // lblTxtOrderNumber
             // 
-            this.lblTxtOrderNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblTxtOrderNumber.ForeColor = System.Drawing.Color.White;
+            this.lblTxtOrderNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.lblTxtOrderNumber.ForeColor = System.Drawing.Color.Black;
             this.lblTxtOrderNumber.Location = new System.Drawing.Point(0, 0);
             this.lblTxtOrderNumber.Name = "lblTxtOrderNumber";
             this.lblTxtOrderNumber.Size = new System.Drawing.Size(75, 50);
@@ -412,8 +424,8 @@
             // 
             // lblNumOrderNumber
             // 
-            this.lblNumOrderNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lblNumOrderNumber.ForeColor = System.Drawing.Color.White;
+            this.lblNumOrderNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.lblNumOrderNumber.ForeColor = System.Drawing.Color.Black;
             this.lblNumOrderNumber.Location = new System.Drawing.Point(75, 0);
             this.lblNumOrderNumber.Name = "lblNumOrderNumber";
             this.lblNumOrderNumber.Size = new System.Drawing.Size(100, 50);
@@ -423,7 +435,8 @@
             // 
             // lblTime
             // 
-            this.lblTime.ForeColor = System.Drawing.Color.White;
+            this.lblTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.lblTime.ForeColor = System.Drawing.Color.Black;
             this.lblTime.Location = new System.Drawing.Point(450, 0);
             this.lblTime.Name = "lblTime";
             this.lblTime.Size = new System.Drawing.Size(400, 50);
@@ -431,11 +444,11 @@
             this.lblTime.Text = "時間︰";
             this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // main
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.ClientSize = new System.Drawing.Size(1000, 700);
             this.Controls.Add(this.lblTime);
             this.Controls.Add(this.lblNumOrderNumber);
@@ -459,10 +472,11 @@
             this.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1000, 600);
-            this.Name = "main";
+            this.Name = "Main";
             this.Text = "飲料訂購系統";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_FormClosing);
+            this.Load += new System.EventHandler(this.Main_Load);
             this.pnlChoosableSugarRegion.ResumeLayout(false);
             this.pnlChoosableIceRegion.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).EndInit();
@@ -497,7 +511,7 @@
         private System.Windows.Forms.Label lblDollar;
         private System.Windows.Forms.Button btnPlus;
         private System.Windows.Forms.Button btnMinus;
-        private System.Windows.Forms.Timer MouseClickTimer;
+        private System.Windows.Forms.Timer mouseClickTimer;
         private System.Windows.Forms.Label lblTxtOrderNumber;
         private System.Windows.Forms.Label lblNumOrderNumber;
         private System.Windows.Forms.Label lblTime;

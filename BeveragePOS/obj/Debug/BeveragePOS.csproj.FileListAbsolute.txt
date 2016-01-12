@@ -9,3 +9,4 @@ C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.pdb
 C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS.mdf
 C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS_log.ldf
 C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.csprojResolveAssemblyReference.cache
+C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.login.resources
