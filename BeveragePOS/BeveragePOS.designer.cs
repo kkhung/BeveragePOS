@@ -336,7 +336,7 @@ namespace BeveragePOS
 		
 		private int _ID;
 		
-		private int _EmployeeID;
+		private string _EmployeeID;
 		
 		private System.DateTime _DateTime;
 		
@@ -350,7 +350,7 @@ namespace BeveragePOS
     partial void OnCreated();
     partial void OnIDChanging(int value);
     partial void OnIDChanged();
-    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanging(string value);
     partial void OnEmployeeIDChanged();
     partial void OnDateTimeChanging(System.DateTime value);
     partial void OnDateTimeChanged();
@@ -384,8 +384,8 @@ namespace BeveragePOS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
-		public int EmployeeID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmployeeID
 		{
 			get
 			{
@@ -475,7 +475,7 @@ namespace BeveragePOS
 					}
 					else
 					{
-						this._EmployeeID = default(int);
+						this._EmployeeID = default(string);
 					}
 					this.SendPropertyChanged("Employee");
 				}
@@ -509,11 +509,13 @@ namespace BeveragePOS
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private int _ID;
+		private string _ID;
 		
 		private string _Name;
 		
 		private string _Password;
+		
+		private bool _hasManagerRight;
 		
 		private bool _hasSuperRight;
 		
@@ -525,12 +527,14 @@ namespace BeveragePOS
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnIDChanging(int value);
+    partial void OnIDChanging(string value);
     partial void OnIDChanged();
     partial void OnNameChanging(string value);
     partial void OnNameChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
+    partial void OnhasManagerRightChanging(bool value);
+    partial void OnhasManagerRightChanged();
     partial void OnhasSuperRightChanging(bool value);
     partial void OnhasSuperRightChanged();
     #endregion
@@ -542,8 +546,8 @@ namespace BeveragePOS
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="NVarChar(50) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ID
 		{
 			get
 			{
@@ -598,6 +602,26 @@ namespace BeveragePOS
 					this._Password = value;
 					this.SendPropertyChanged("Password");
 					this.OnPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_hasManagerRight", DbType="Bit NOT NULL")]
+		public bool hasManagerRight
+		{
+			get
+			{
+				return this._hasManagerRight;
+			}
+			set
+			{
+				if ((this._hasManagerRight != value))
+				{
+					this.OnhasManagerRightChanging(value);
+					this.SendPropertyChanging();
+					this._hasManagerRight = value;
+					this.SendPropertyChanged("hasManagerRight");
+					this.OnhasManagerRightChanged();
 				}
 			}
 		}
@@ -965,7 +989,7 @@ namespace BeveragePOS
 		
 		private int _ID;
 		
-		private int _EmployeeID;
+		private string _EmployeeID;
 		
 		private int _Number;
 		
@@ -981,7 +1005,7 @@ namespace BeveragePOS
     partial void OnCreated();
     partial void OnIDChanging(int value);
     partial void OnIDChanged();
-    partial void OnEmployeeIDChanging(int value);
+    partial void OnEmployeeIDChanging(string value);
     partial void OnEmployeeIDChanged();
     partial void OnNumberChanging(int value);
     partial void OnNumberChanged();
@@ -1016,8 +1040,8 @@ namespace BeveragePOS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="Int NOT NULL")]
-		public int EmployeeID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EmployeeID", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string EmployeeID
 		{
 			get
 			{
@@ -1120,7 +1144,7 @@ namespace BeveragePOS
 					}
 					else
 					{
-						this._EmployeeID = default(int);
+						this._EmployeeID = default(string);
 					}
 					this.SendPropertyChanged("Employee");
 				}

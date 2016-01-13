@@ -23,3 +23,4 @@ C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeverageP
 C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.Properties.Resources.resources
 C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.csproj.GenerateResource.Cache
 C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.Record.resources
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.Manage.resources

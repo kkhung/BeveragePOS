@@ -113,6 +113,7 @@
             this.pnlChoosableSugarRegion.Controls.Add(this.rbHalfSugar);
             this.pnlChoosableSugarRegion.Controls.Add(this.rbLessSugar);
             this.pnlChoosableSugarRegion.Controls.Add(this.rbFullSugar);
+            this.pnlChoosableSugarRegion.Enabled = false;
             this.pnlChoosableSugarRegion.Location = new System.Drawing.Point(26, 21);
             this.pnlChoosableSugarRegion.Name = "pnlChoosableSugarRegion";
             this.pnlChoosableSugarRegion.Size = new System.Drawing.Size(375, 50);
@@ -121,7 +122,7 @@
             // rbNoSugar
             // 
             this.rbNoSugar.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbNoSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.rbNoSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.rbNoSugar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.rbNoSugar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.rbNoSugar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
@@ -132,13 +133,13 @@
             this.rbNoSugar.TabIndex = 4;
             this.rbNoSugar.Text = "無糖";
             this.rbNoSugar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbNoSugar.UseVisualStyleBackColor = true;
+            this.rbNoSugar.UseVisualStyleBackColor = false;
             this.rbNoSugar.Click += new System.EventHandler(this.rbSugar_Click);
             // 
             // rbQuarterSugar
             // 
             this.rbQuarterSugar.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbQuarterSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.rbQuarterSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.rbQuarterSugar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.rbQuarterSugar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.rbQuarterSugar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
@@ -149,13 +150,13 @@
             this.rbQuarterSugar.TabIndex = 3;
             this.rbQuarterSugar.Text = "微糖";
             this.rbQuarterSugar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbQuarterSugar.UseVisualStyleBackColor = true;
+            this.rbQuarterSugar.UseVisualStyleBackColor = false;
             this.rbQuarterSugar.Click += new System.EventHandler(this.rbSugar_Click);
             // 
             // rbHalfSugar
             // 
             this.rbHalfSugar.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbHalfSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.rbHalfSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.rbHalfSugar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.rbHalfSugar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.rbHalfSugar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
@@ -166,13 +167,13 @@
             this.rbHalfSugar.TabIndex = 2;
             this.rbHalfSugar.Text = "半糖";
             this.rbHalfSugar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbHalfSugar.UseVisualStyleBackColor = true;
+            this.rbHalfSugar.UseVisualStyleBackColor = false;
             this.rbHalfSugar.Click += new System.EventHandler(this.rbSugar_Click);
             // 
             // rbLessSugar
             // 
             this.rbLessSugar.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbLessSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.rbLessSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.rbLessSugar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.rbLessSugar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.rbLessSugar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
@@ -183,13 +184,13 @@
             this.rbLessSugar.TabIndex = 1;
             this.rbLessSugar.Text = "少糖";
             this.rbLessSugar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbLessSugar.UseVisualStyleBackColor = true;
+            this.rbLessSugar.UseVisualStyleBackColor = false;
             this.rbLessSugar.Click += new System.EventHandler(this.rbSugar_Click);
             // 
             // rbFullSugar
             // 
             this.rbFullSugar.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbFullSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.rbFullSugar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.rbFullSugar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.rbFullSugar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.rbFullSugar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
@@ -200,14 +201,15 @@
             this.rbFullSugar.TabIndex = 0;
             this.rbFullSugar.Text = "全糖";
             this.rbFullSugar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbFullSugar.UseVisualStyleBackColor = true;
+            this.rbFullSugar.UseVisualStyleBackColor = false;
             this.rbFullSugar.Click += new System.EventHandler(this.rbSugar_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.btnDelete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
+            this.btnDelete.Enabled = false;
             this.btnDelete.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.btnDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -216,13 +218,13 @@
             this.btnDelete.Size = new System.Drawing.Size(460, 50);
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "刪除";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // rbWarm
             // 
             this.rbWarm.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbWarm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.rbWarm.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.rbWarm.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.rbWarm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.rbWarm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
@@ -233,13 +235,13 @@
             this.rbWarm.TabIndex = 14;
             this.rbWarm.Text = "常溫";
             this.rbWarm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbWarm.UseVisualStyleBackColor = true;
+            this.rbWarm.UseVisualStyleBackColor = false;
             this.rbWarm.Click += new System.EventHandler(this.rbIce_Click);
             // 
             // rbNoIce
             // 
             this.rbNoIce.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbNoIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.rbNoIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.rbNoIce.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.rbNoIce.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.rbNoIce.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
@@ -250,13 +252,13 @@
             this.rbNoIce.TabIndex = 13;
             this.rbNoIce.Text = "去冰";
             this.rbNoIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbNoIce.UseVisualStyleBackColor = true;
+            this.rbNoIce.UseVisualStyleBackColor = false;
             this.rbNoIce.Click += new System.EventHandler(this.rbIce_Click);
             // 
             // rbLittleIce
             // 
             this.rbLittleIce.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbLittleIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.rbLittleIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.rbLittleIce.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.rbLittleIce.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.rbLittleIce.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
@@ -267,13 +269,13 @@
             this.rbLittleIce.TabIndex = 12;
             this.rbLittleIce.Text = "微冰";
             this.rbLittleIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbLittleIce.UseVisualStyleBackColor = true;
+            this.rbLittleIce.UseVisualStyleBackColor = false;
             this.rbLittleIce.Click += new System.EventHandler(this.rbIce_Click);
             // 
             // rbLessIce
             // 
             this.rbLessIce.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbLessIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.rbLessIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.rbLessIce.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.rbLessIce.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.rbLessIce.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
@@ -284,13 +286,13 @@
             this.rbLessIce.TabIndex = 11;
             this.rbLessIce.Text = "少冰";
             this.rbLessIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbLessIce.UseVisualStyleBackColor = true;
+            this.rbLessIce.UseVisualStyleBackColor = false;
             this.rbLessIce.Click += new System.EventHandler(this.rbIce_Click);
             // 
             // rbMoreIce
             // 
             this.rbMoreIce.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbMoreIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.rbMoreIce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
             this.rbMoreIce.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.rbMoreIce.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.rbMoreIce.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
@@ -301,7 +303,7 @@
             this.rbMoreIce.TabIndex = 10;
             this.rbMoreIce.Text = "正常";
             this.rbMoreIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbMoreIce.UseVisualStyleBackColor = true;
+            this.rbMoreIce.UseVisualStyleBackColor = false;
             this.rbMoreIce.Click += new System.EventHandler(this.rbIce_Click);
             // 
             // pnlChoosableIceRegion
@@ -311,6 +313,7 @@
             this.pnlChoosableIceRegion.Controls.Add(this.rbWarm);
             this.pnlChoosableIceRegion.Controls.Add(this.rbLessIce);
             this.pnlChoosableIceRegion.Controls.Add(this.rbMoreIce);
+            this.pnlChoosableIceRegion.Enabled = false;
             this.pnlChoosableIceRegion.Location = new System.Drawing.Point(26, 81);
             this.pnlChoosableIceRegion.Name = "pnlChoosableIceRegion";
             this.pnlChoosableIceRegion.Size = new System.Drawing.Size(375, 50);
@@ -420,7 +423,8 @@
             // 
             // btnRingUp
             // 
-            this.btnRingUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.btnRingUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
+            this.btnRingUp.Enabled = false;
             this.btnRingUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.btnRingUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.btnRingUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -429,7 +433,7 @@
             this.btnRingUp.Size = new System.Drawing.Size(205, 50);
             this.btnRingUp.TabIndex = 7;
             this.btnRingUp.Text = "結帳";
-            this.btnRingUp.UseVisualStyleBackColor = true;
+            this.btnRingUp.UseVisualStyleBackColor = false;
             this.btnRingUp.Click += new System.EventHandler(this.btnRingUp_Click);
             // 
             // lblTotalTitle
@@ -469,7 +473,8 @@
             // 
             // btnPlus
             // 
-            this.btnPlus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.btnPlus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
+            this.btnPlus.Enabled = false;
             this.btnPlus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.btnPlus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.btnPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -478,14 +483,15 @@
             this.btnPlus.Size = new System.Drawing.Size(75, 50);
             this.btnPlus.TabIndex = 15;
             this.btnPlus.Text = "加";
-            this.btnPlus.UseVisualStyleBackColor = true;
+            this.btnPlus.UseVisualStyleBackColor = false;
             this.btnPlus.Click += new System.EventHandler(this.btnPlus_Click);
             this.btnPlus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnPlus_MouseDown);
             this.btnPlus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnPlus_MouseUp);
             // 
             // btnMinus
             // 
-            this.btnMinus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.btnMinus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
+            this.btnMinus.Enabled = false;
             this.btnMinus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.btnMinus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.btnMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -494,7 +500,7 @@
             this.btnMinus.Size = new System.Drawing.Size(75, 50);
             this.btnMinus.TabIndex = 15;
             this.btnMinus.Text = "減";
-            this.btnMinus.UseVisualStyleBackColor = true;
+            this.btnMinus.UseVisualStyleBackColor = false;
             this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
             this.btnMinus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnMinus_MouseDown);
             this.btnMinus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnMinus_MouseUp);
@@ -699,8 +705,8 @@
         private System.Windows.Forms.Panel pnlFavorAndQuantityRegion;
         private System.Windows.Forms.Panel pnlInformationRegion;
         private System.Windows.Forms.Label pnlEmployeeTitle;
-        private System.Windows.Forms.Label lblEmployeeContent;
-        private System.Windows.Forms.Label lblMessage;
+        internal System.Windows.Forms.Label lblEmployeeContent;
+        internal System.Windows.Forms.Label lblMessage;
     }
 }
 
