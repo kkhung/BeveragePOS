@@ -11,21 +11,33 @@ namespace BeveragePOS
     {
         private BeveragePOSDataContext dataContext = new BeveragePOSDataContext();
         private BindingList<OrderDetail> orderDetails = new BindingList<OrderDetail>();
+        private Color colorBtnChecked = Color.FromArgb(145, 106, 94);
+        private Color colorBtnDefault = Color.FromArgb(112, 153, 171);
+        private Color colorBtnMouseDown = Color.FromArgb(132, 96, 85);
+        private Color colorBtnMouseOver = Color.FromArgb(145, 106, 94);
+        private bool _isCloseable = false;
+        public bool isCloseable
+        {
+            get { return _isCloseable; }
+            set { _isCloseable = value; }
+        }
         private Employee _employee = new Employee();
-        public Employee employee { get { return _employee; } set { _employee = value; } }
-        private Color defaultButtonColor = Color.FromArgb(112, 153, 171);
-        private Color selectedButtonColor = Color.FromArgb(145, 106, 94);
-        
+        public Employee employee
+        {
+            get { return _employee; }
+            set { _employee = value; }
+        }
+
         private void getLblOrderNumber()
         {
-            var results = from orderMaster in dataContext.OrderMaster where orderMaster.Time.Days == DateTime.Now.Day select new { orderMaster.Number, orderMaster.Time };
+            var results = from orderMaster in dataContext.OrderMaster where orderMaster.DateTime.Day == DateTime.Now.Day select new { orderMaster.Number };
             if (results.Count() == 0)
             {
-                lblNumOrderNumber.Text = "1";
+                lblOrderNumberContent.Text = "1";
             }
             else
             {
-                lblNumOrderNumber.Text = results.Max().Number.ToString();
+                lblOrderNumberContent.Text = results.Max().Number.ToString();
             }
         }
         
@@ -41,9 +53,9 @@ namespace BeveragePOS
             dgvOrderDetail.Columns["Sugar"].HeaderText = "甜度";
             dgvOrderDetail.Columns["Ice"].HeaderText = "冰塊";
             dgvOrderDetail.Columns["Quantity"].HeaderText = "數量";
-            dgvOrderDetail.Columns["BeverageName"].Width = 200;
-            dgvOrderDetail.Columns["Sugar"].Width = 75;
-            dgvOrderDetail.Columns["Ice"].Width = 75;
+            dgvOrderDetail.Columns["BeverageName"].Width = 198;
+            dgvOrderDetail.Columns["Sugar"].Width = 80;
+            dgvOrderDetail.Columns["Ice"].Width = 80;
             dgvOrderDetail.Columns["Quantity"].Width = 100;
             dgvOrderDetail.ResumeLayout();
         }
@@ -57,31 +69,40 @@ namespace BeveragePOS
                 RadioButton rbCategory = new RadioButton();
                 rbCategory.Appearance = Appearance.Button;
                 rbCategory.Click += new EventHandler(rbCategory_Click);
-                rbCategory.Margin = new Padding(0);
+                rbCategory.FlatAppearance.CheckedBackColor = colorBtnChecked;
+                rbCategory.FlatAppearance.MouseDownBackColor = colorBtnMouseDown;
+                rbCategory.FlatAppearance.MouseOverBackColor = colorBtnMouseOver;
+                rbCategory.FlatStyle = FlatStyle.Flat;
+                rbCategory.Margin = new Padding(5);
                 rbCategory.Parent = flpCatelogiesRegion;
-                rbCategory.Size = new Size(flpCatelogiesRegion.Width / 3 - 10, 75);
+                rbCategory.Size = new Size(flpCatelogiesRegion.Width / 3 - 35, 50);
                 rbCategory.Text = result;
                 rbCategory.TextAlign = ContentAlignment.MiddleCenter;
+                rbCategory.UseVisualStyleBackColor = true;
             }
             flpCatelogiesRegion.ResumeLayout();
         }
 
-        private void setSystemLog(string description)
+        public void setSystemLog(string description)
         {
-            SystemLog log = new SystemLog();
-            log.EmployeeID = _employee.ID;
-            log.Time = TimeSpan.FromTicks(DateTime.Now.Ticks);
-            log.Description = description;
+            SystemLog log = new SystemLog
+            {
+                EmployeeID = employee.ID,
+                DateTime = DateTime.Now,
+                Description = description
+            };
+            dataContext.SystemLog.InsertOnSubmit(log);
+            dataContext.SubmitChanges();
         }
 
         public Main()
         {
             InitializeComponent();
         }
-
+        
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {
-            setSystemLog("登出");
+            e.Cancel = (isCloseable) ? false : true;
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -97,7 +118,8 @@ namespace BeveragePOS
             }
             Login login = new Login(this);
             login.ShowDialog();
-            setSystemLog("登入");
+            lblEmployeeContent.Text = employee.Name;
+            lblMessage.Text = "歡迎使用本系統";
         }
 
         private void dgvOrderDetail_SelectionChanged(object sender, EventArgs e)
@@ -116,13 +138,30 @@ namespace BeveragePOS
                 {
                     orderDetails[dgvOrderDetail.SelectedRows[0].Index].Ice = "熱飲";
                 }
+                foreach (RadioButton rbSugar in pnlChoosableSugarRegion.Controls)
+                {
+                    rbSugar.Checked = false;
+                    if (orderDetails[dgvOrderDetail.SelectedRows[0].Index].Sugar == rbSugar.Text)
+                    {
+                        rbSugar.Checked = true;
+                    }
+                }
+                foreach (RadioButton rbIce in pnlChoosableIceRegion.Controls)
+                {
+                    rbIce.Checked = false;
+                    if (orderDetails[dgvOrderDetail.SelectedRows[0].Index].Ice == rbIce.Text)
+                    {
+                        rbIce.Checked = true;
+                    }
+                }
+                lblMessage.Text = "選取第" + (dgvOrderDetail.SelectedRows[0].Index + 1) + "筆交易項目";
             }
         }
 
         private void rbCategory_Click(object sender, EventArgs e)
         {
             RadioButton rbCategory = sender as RadioButton;
-            var results = from beverage in dataContext.Beverage where beverage.IsSale == true && beverage.Category == rbCategory.Text select new { beverage.Name, beverage.Price, beverage.IsChoosableSugar, beverage.IsChoosableIce };
+            var results = from beverage in dataContext.Beverage where beverage.IsSale == true && beverage.Category == rbCategory.Text select new { beverage.Name, beverage.Category, beverage.Price, beverage.IsChoosableSugar, beverage.IsChoosableIce };
             SuspendLayout();
             flpBeveragesRegion.SuspendLayout();
             flpBeveragesRegion.Controls.Clear();
@@ -134,20 +173,26 @@ namespace BeveragePOS
                 beverage.IsChoosableSugar = result.IsChoosableSugar;
                 beverage.IsChoosableIce = result.IsChoosableIce;
                 Button btnBeverage = new Button();
-                btnBeverage.BackColor = defaultButtonColor;
+                btnBeverage.BackColor = colorBtnDefault;
                 btnBeverage.Click += new EventHandler(btnBeverage_Click);
-                btnBeverage.Margin = new Padding(0);
+                btnBeverage.FlatAppearance.CheckedBackColor = colorBtnChecked;
+                btnBeverage.FlatAppearance.MouseDownBackColor = colorBtnMouseDown;
+                btnBeverage.FlatAppearance.MouseOverBackColor = colorBtnMouseOver;
+                btnBeverage.FlatStyle = FlatStyle.Flat;
+                btnBeverage.Margin = new Padding(5);
                 btnBeverage.Parent = flpBeveragesRegion;
-                btnBeverage.Size = new Size(flpBeveragesRegion.Width / 3 - 10, 75);
+                btnBeverage.Size = new Size(flpBeveragesRegion.Width / 3 - 35, 50);
                 btnBeverage.Tag = beverage;
-                btnBeverage.Text = beverage.Name + "(" + beverage.Price + ")";
+                btnBeverage.Text = beverage.Name;
+                btnBeverage.UseVisualStyleBackColor = true;
             }
             flpBeveragesRegion.ResumeLayout();
             ResumeLayout();
             foreach (RadioButton rb in flpCatelogiesRegion.Controls)
             {
-                rb.BackColor = (rb.Checked) ? selectedButtonColor : defaultButtonColor;
+                rb.BackColor = (rb.Checked) ? colorBtnChecked : colorBtnDefault;
             }
+            lblMessage.Text = "";
         }
 
         private void btnBeverage_Click(object sender, EventArgs e)
@@ -159,43 +204,34 @@ namespace BeveragePOS
             countTotal();
             dgvOrderDetail.Rows[dgvOrderDetail.RowCount - 1].Selected = true;
             dgvOrderDetail.Select();
+            lblMessage.Text = "新增1筆交易項目";
         }
 
-        private void btnSugar_Click(object sender, EventArgs e)
+        private void rbSugar_Click(object sender, EventArgs e)
         {
             if (dgvOrderDetail.SelectedRows.Count > 0)
             {
-                orderDetails[dgvOrderDetail.SelectedRows[0].Index].Sugar = (sender as Button).Text;
+                orderDetails[dgvOrderDetail.SelectedRows[0].Index].Sugar = (sender as RadioButton).Text;
             }
+            lblMessage.Text = "";
         }
 
-        private void btnIce_Click(object sender, EventArgs e)
+        private void rbIce_Click(object sender, EventArgs e)
         {
             if (dgvOrderDetail.SelectedRows.Count > 0)
             {
-                orderDetails[dgvOrderDetail.SelectedRows[0].Index].Ice = (sender as Button).Text;
+                orderDetails[dgvOrderDetail.SelectedRows[0].Index].Ice = (sender as RadioButton).Text;
             }
+            lblMessage.Text = "";
         }
-
-        private void btnNumber_Click(object sender, EventArgs e)
-        {
-            if (dgvOrderDetail.SelectedRows.Count > 0)
-            {
-                orderDetails[dgvOrderDetail.SelectedRows[0].Index].Quantity = int.Parse(orderDetails[dgvOrderDetail.SelectedRows[0].Index].Quantity + (sender as Button).Text);
-                countTotal();
-            }
-        }
-
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            orderDetails[dgvOrderDetail.SelectedRows[0].Index].Quantity = 1;
-            countTotal();
-        }
-
+        
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvOrderDetail.SelectedRows.Count > 0)
             {
+                Button btnDelete = sender as Button;
+                btnDelete.BackColor = colorBtnChecked;
+                btnDelete.Update();
                 orderDetails.RemoveAt(dgvOrderDetail.SelectedRows[0].Index);
                 countTotal();
                 if (dgvOrderDetail.Rows.Count > 0)
@@ -203,19 +239,32 @@ namespace BeveragePOS
                     dgvOrderDetail.Rows[dgvOrderDetail.Rows.Count - 1].Selected = true;
                     dgvOrderDetail.Select();
                 }
+                btnDelete.BackColor = colorBtnDefault;
+                lblMessage.Text = "刪除1筆交易項目";
             }
         }
 
         private void btnRingUp_Click(object sender, EventArgs e)
         {
+            int number = int.Parse(lblOrderNumberContent.Text);
+            OrderMaster orderMaster = new OrderMaster()
+            {
+                EmployeeID = employee.ID,
+                Number = number,
+                DateTime = DateTime.Now
+            };
+            dataContext.OrderMaster.InsertOnSubmit(orderMaster);
+            dataContext.SubmitChanges();
+            int orderMasterID = ((from o in dataContext.OrderMaster where o.DateTime.Day == DateTime.Now.Day && o.Number == number  select new { o.ID }).Single().ID);
+            foreach (OrderDetail orderDetail in orderDetails)
+            {
+                orderDetail.OrderMasterID = orderMasterID;
+                dataContext.OrderDetail.InsertOnSubmit(orderDetail);
+            }
+            dataContext.SubmitChanges();
             orderDetails.Clear();
             countTotal();
-            lblNumOrderNumber.Text = (int.Parse(lblNumOrderNumber.Text) + 1).ToString();
-        }
-
-        private void btnLog_Click(object sender, EventArgs e)
-        {
-
+            lblOrderNumberContent.Text = (number + 1).ToString();
         }
 
         private void btnManage_Click(object sender, EventArgs e)
@@ -225,10 +274,17 @@ namespace BeveragePOS
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            setSystemLog("登出");
-            Login login = new Login(this);
-            login.ShowDialog();
-            setSystemLog("登入");
+            if (orderDetails.Count > 0)
+            {
+                lblMessage.Text = "交易未完成！";
+            }
+            else
+            {
+                lblMessage.Text = "己登出";
+                setSystemLog("登出");
+                Login login = new Login(this);
+                login.ShowDialog();
+            }
         }
 
         private void timeTimer_Tick(object sender, EventArgs e)
@@ -243,7 +299,7 @@ namespace BeveragePOS
             {
                 total += orderDetail.Beverage.Price * orderDetail.Quantity;
             }
-            lblNumTotal.Text = total.ToString();
+            lblTotalContent.Text = total.ToString();
         }
 
         private void btnPlus_Click(object sender, EventArgs e)
@@ -253,6 +309,7 @@ namespace BeveragePOS
                 orderDetails[dgvOrderDetail.SelectedRows[0].Index].Quantity += 1;
             }
             countTotal();
+            lblMessage.Text = "";
         }
 
         private void btnMinus_Click(object sender, EventArgs e)
@@ -269,6 +326,7 @@ namespace BeveragePOS
                 }
             }
             countTotal();
+            lblMessage.Text = "";
         }
 
         bool isMouseOnBtnPlus = false;
@@ -309,6 +367,12 @@ namespace BeveragePOS
         {
             isMouseOnBtnMinus = false;
             mouseClickTimer.Enabled = false;
+        }
+
+        private void btnRecord_Click(object sender, EventArgs e)
+        {
+            Record record = new Record();
+            record.ShowDialog();
         }
     }
 }

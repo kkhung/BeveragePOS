@@ -338,7 +338,7 @@ namespace BeveragePOS
 		
 		private int _EmployeeID;
 		
-		private System.TimeSpan _Time;
+		private System.DateTime _DateTime;
 		
 		private string _Description;
 		
@@ -352,8 +352,8 @@ namespace BeveragePOS
     partial void OnIDChanged();
     partial void OnEmployeeIDChanging(int value);
     partial void OnEmployeeIDChanged();
-    partial void OnTimeChanging(System.TimeSpan value);
-    partial void OnTimeChanged();
+    partial void OnDateTimeChanging(System.DateTime value);
+    partial void OnDateTimeChanged();
     partial void OnDescriptionChanging(string value);
     partial void OnDescriptionChanged();
     #endregion
@@ -408,22 +408,22 @@ namespace BeveragePOS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="Time NOT NULL")]
-		public System.TimeSpan Time
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime DateTime
 		{
 			get
 			{
-				return this._Time;
+				return this._DateTime;
 			}
 			set
 			{
-				if ((this._Time != value))
+				if ((this._DateTime != value))
 				{
-					this.OnTimeChanging(value);
+					this.OnDateTimeChanging(value);
 					this.SendPropertyChanging();
-					this._Time = value;
-					this.SendPropertyChanged("Time");
-					this.OnTimeChanged();
+					this._DateTime = value;
+					this.SendPropertyChanged("DateTime");
+					this.OnDateTimeChanged();
 				}
 			}
 		}
@@ -969,7 +969,7 @@ namespace BeveragePOS
 		
 		private int _Number;
 		
-		private System.TimeSpan _Time;
+		private System.DateTime _DateTime;
 		
 		private EntitySet<OrderDetail> _OrderDetail;
 		
@@ -985,8 +985,8 @@ namespace BeveragePOS
     partial void OnEmployeeIDChanged();
     partial void OnNumberChanging(int value);
     partial void OnNumberChanged();
-    partial void OnTimeChanging(System.TimeSpan value);
-    partial void OnTimeChanged();
+    partial void OnDateTimeChanging(System.DateTime value);
+    partial void OnDateTimeChanged();
     #endregion
 		
 		public OrderMaster()
@@ -996,7 +996,7 @@ namespace BeveragePOS
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int ID
 		{
 			get
@@ -1060,22 +1060,22 @@ namespace BeveragePOS
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="Time NOT NULL")]
-		public System.TimeSpan Time
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime DateTime
 		{
 			get
 			{
-				return this._Time;
+				return this._DateTime;
 			}
 			set
 			{
-				if ((this._Time != value))
+				if ((this._DateTime != value))
 				{
-					this.OnTimeChanging(value);
+					this.OnDateTimeChanging(value);
 					this.SendPropertyChanging();
-					this._Time = value;
-					this.SendPropertyChanged("Time");
-					this.OnTimeChanged();
+					this._DateTime = value;
+					this.SendPropertyChanged("DateTime");
+					this.OnDateTimeChanged();
 				}
 			}
 		}

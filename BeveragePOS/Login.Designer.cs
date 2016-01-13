@@ -35,7 +35,7 @@
             this.lblEmployeePassword = new System.Windows.Forms.Label();
             this.txtEmployeePassword = new System.Windows.Forms.TextBox();
             this.btnAccept = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.pnlLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,31 +58,33 @@
             this.pnlLogin.Controls.Add(this.txtEmployeePassword);
             this.pnlLogin.Location = new System.Drawing.Point(30, 75);
             this.pnlLogin.Name = "pnlLogin";
-            this.pnlLogin.Size = new System.Drawing.Size(240, 125);
+            this.pnlLogin.Size = new System.Drawing.Size(238, 125);
             this.pnlLogin.TabIndex = 0;
             // 
             // lblEmployeeID
             // 
             this.lblEmployeeID.AutoSize = true;
-            this.lblEmployeeID.Location = new System.Drawing.Point(20, 26);
+            this.lblEmployeeID.Location = new System.Drawing.Point(20, 30);
             this.lblEmployeeID.Name = "lblEmployeeID";
             this.lblEmployeeID.Size = new System.Drawing.Size(54, 21);
             this.lblEmployeeID.TabIndex = 0;
-            this.lblEmployeeID.Text = "編號";
+            this.lblEmployeeID.Text = "帳號";
             this.lblEmployeeID.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // txtEmployeeID
             // 
             this.txtEmployeeID.BackColor = System.Drawing.Color.White;
-            this.txtEmployeeID.Location = new System.Drawing.Point(74, 20);
+            this.txtEmployeeID.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmployeeID.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtEmployeeID.Location = new System.Drawing.Point(74, 25);
             this.txtEmployeeID.Name = "txtEmployeeID";
-            this.txtEmployeeID.Size = new System.Drawing.Size(146, 33);
+            this.txtEmployeeID.Size = new System.Drawing.Size(142, 30);
             this.txtEmployeeID.TabIndex = 1;
             // 
             // lblEmployeePassword
             // 
             this.lblEmployeePassword.AutoSize = true;
-            this.lblEmployeePassword.Location = new System.Drawing.Point(20, 78);
+            this.lblEmployeePassword.Location = new System.Drawing.Point(20, 75);
             this.lblEmployeePassword.Name = "lblEmployeePassword";
             this.lblEmployeePassword.Size = new System.Drawing.Size(54, 21);
             this.lblEmployeePassword.TabIndex = 0;
@@ -92,15 +94,20 @@
             // txtEmployeePassword
             // 
             this.txtEmployeePassword.BackColor = System.Drawing.Color.White;
-            this.txtEmployeePassword.Location = new System.Drawing.Point(74, 72);
+            this.txtEmployeePassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEmployeePassword.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtEmployeePassword.Location = new System.Drawing.Point(74, 70);
             this.txtEmployeePassword.Name = "txtEmployeePassword";
             this.txtEmployeePassword.PasswordChar = '*';
-            this.txtEmployeePassword.Size = new System.Drawing.Size(146, 33);
+            this.txtEmployeePassword.Size = new System.Drawing.Size(142, 30);
             this.txtEmployeePassword.TabIndex = 2;
             // 
             // btnAccept
             // 
-            this.btnAccept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            this.btnAccept.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.btnAccept.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
+            this.btnAccept.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
+            this.btnAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccept.Location = new System.Drawing.Point(60, 220);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(75, 50);
@@ -109,17 +116,20 @@
             this.btnAccept.UseVisualStyleBackColor = false;
             this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
-            // btnCancel
+            // btnExit
             // 
-            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(165, 220);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 50);
-            this.btnCancel.TabIndex = 2;
-            this.btnCancel.Text = "取消";
-            this.btnCancel.UseVisualStyleBackColor = false;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnExit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
+            this.btnExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Location = new System.Drawing.Point(165, 220);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 50);
+            this.btnExit.TabIndex = 2;
+            this.btnExit.Text = "離開";
+            this.btnExit.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Login
             // 
@@ -127,16 +137,18 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
-            this.CancelButton = this.btnCancel;
+            this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(300, 300);
             this.ControlBox = false;
             this.Controls.Add(this.lblMessage);
-            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.pnlLogin);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("標楷體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Login";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -158,6 +170,6 @@
         private System.Windows.Forms.Label lblEmployeePassword;
         private System.Windows.Forms.TextBox txtEmployeePassword;
         private System.Windows.Forms.Button btnAccept;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnExit;
     }
 }

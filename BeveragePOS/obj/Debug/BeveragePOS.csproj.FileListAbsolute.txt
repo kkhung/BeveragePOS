@@ -10,3 +10,16 @@ C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS.mdf
 C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS_log.ldf
 C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.csprojResolveAssemblyReference.cache
 C:\Users\LiangEnJia\Desktop\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.login.resources
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS.exe.config
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.exe
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.pdb
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS.mdf
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS_log.ldf
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS.exe
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\bin\Debug\BeveragePOS.pdb
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.csprojResolveAssemblyReference.cache
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.Login.resources
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.Main.resources
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.Properties.Resources.resources
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.csproj.GenerateResource.Cache
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.Record.resources

@@ -15,7 +15,7 @@
     <Type Name="SystemLog">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="DateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Association Name="Employee_SystemLog" Member="Employee" ThisKey="EmployeeID" OtherKey="ID" Type="Employee" IsForeignKey="true" />
     </Type>
@@ -44,10 +44,10 @@
   </Table>
   <Table Name="dbo.OrderMaster" Member="OrderMaster">
     <Type Name="OrderMaster">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Number" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Time" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="DateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Association Name="OrderMaster_OrderDetail" Member="OrderDetail" ThisKey="ID" OtherKey="OrderMasterID" Type="OrderDetail" />
       <Association Name="Employee_OrderMaster" Member="Employee" ThisKey="EmployeeID" OtherKey="ID" Type="Employee" IsForeignKey="true" />
     </Type>

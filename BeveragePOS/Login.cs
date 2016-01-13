@@ -7,6 +7,7 @@ namespace BeveragePOS
 {
     public partial class Login : Form
     {
+        private bool isCloseable = false;
         private BeveragePOSDataContext dataContext = new BeveragePOSDataContext();
         private Main main;
 
@@ -24,8 +25,7 @@ namespace BeveragePOS
 
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // DialogResult 等於 Cancel （預設）時鎖定關閉鈕
-            e.Cancel = (DialogResult != DialogResult.Cancel) ? false : true;
+            e.Cancel = (isCloseable) ? false : true;
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -34,28 +34,35 @@ namespace BeveragePOS
             if (int.TryParse(txtEmployeeID.Text, out employeeID))
             {
                 // 以 employeeID 為條件查詢資料庫
-                var results = from employee in dataContext.Employee where employee.ID == employeeID select new { employee.ID, employee.Name, employee.Password, employee.hasSuperRight };
+                var employee = from em in dataContext.Employee where em.ID == employeeID select em;
                 // 判斷有無查詢結果並確認密碼是否正確
-                if (results.Count() == 1 && txtEmployeePassword.Text == results.Single().Password)
+                if (employee.Count() == 1 && txtEmployeePassword.Text == employee.Single().Password)
                 {
                     // 將查詢結果填入 Main 表單上的 employee 屬性
-                    main.employee.ID = results.Single().ID;
-                    main.employee.Name = results.Single().Name;
-                    main.employee.Password = results.Single().Password;
-                    main.employee.hasSuperRight = results.Single().hasSuperRight;
-                    // 設定 DialogResult 並關閉 Login 表單
-                    DialogResult = DialogResult.OK;
+                    main.employee = employee.Single();
+                    // 設定登入訊息
+                    main.setSystemLog("登入");
+                    // 開啟關閉功能並關閉 Login 表單
+                    isCloseable = true;
                     Close();
                 }
             }
-            lblMessage.Text = "會員編號或密碼錯誤";
+            if (txtEmployeeID.Text == "" || txtEmployeePassword.Text == "")
+            {
+                lblMessage.Text = "帳號或密碼不能空白";
+            }
+            else
+            {
+                lblMessage.Text = "帳號或密碼錯誤";
+            }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            // 設定 DialogResult 並結束程式
-            DialogResult = DialogResult.None;
-            main.Close();
+            // 開啟關閉功能並結束程式
+            isCloseable = true;
+            main.isCloseable = true;
+            Application.Exit();
         }
     }
 }
