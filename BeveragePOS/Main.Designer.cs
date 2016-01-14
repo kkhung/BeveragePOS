@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.flpCatelogiesRegion = new System.Windows.Forms.FlowLayoutPanel();
             this.flpBeveragesRegion = new System.Windows.Forms.FlowLayoutPanel();
@@ -134,7 +134,7 @@
             this.rbNoSugar.TabIndex = 4;
             this.rbNoSugar.Text = "無糖";
             this.rbNoSugar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbNoSugar.UseVisualStyleBackColor = false;
+            this.rbNoSugar.UseVisualStyleBackColor = true;
             this.rbNoSugar.Click += new System.EventHandler(this.rbSugar_Click);
             // 
             // rbQuarterSugar
@@ -151,7 +151,7 @@
             this.rbQuarterSugar.TabIndex = 3;
             this.rbQuarterSugar.Text = "微糖";
             this.rbQuarterSugar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbQuarterSugar.UseVisualStyleBackColor = false;
+            this.rbQuarterSugar.UseVisualStyleBackColor = true;
             this.rbQuarterSugar.Click += new System.EventHandler(this.rbSugar_Click);
             // 
             // rbHalfSugar
@@ -168,7 +168,7 @@
             this.rbHalfSugar.TabIndex = 2;
             this.rbHalfSugar.Text = "半糖";
             this.rbHalfSugar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbHalfSugar.UseVisualStyleBackColor = false;
+            this.rbHalfSugar.UseVisualStyleBackColor = true;
             this.rbHalfSugar.Click += new System.EventHandler(this.rbSugar_Click);
             // 
             // rbLessSugar
@@ -185,7 +185,7 @@
             this.rbLessSugar.TabIndex = 1;
             this.rbLessSugar.Text = "少糖";
             this.rbLessSugar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbLessSugar.UseVisualStyleBackColor = false;
+            this.rbLessSugar.UseVisualStyleBackColor = true;
             this.rbLessSugar.Click += new System.EventHandler(this.rbSugar_Click);
             // 
             // rbFullSugar
@@ -202,7 +202,7 @@
             this.rbFullSugar.TabIndex = 0;
             this.rbFullSugar.Text = "全糖";
             this.rbFullSugar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbFullSugar.UseVisualStyleBackColor = false;
+            this.rbFullSugar.UseVisualStyleBackColor = true;
             this.rbFullSugar.Click += new System.EventHandler(this.rbSugar_Click);
             // 
             // btnDelete
@@ -219,7 +219,7 @@
             this.btnDelete.Size = new System.Drawing.Size(460, 50);
             this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "刪除";
-            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // rbWarm
@@ -236,7 +236,7 @@
             this.rbWarm.TabIndex = 4;
             this.rbWarm.Text = "常溫";
             this.rbWarm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbWarm.UseVisualStyleBackColor = false;
+            this.rbWarm.UseVisualStyleBackColor = true;
             this.rbWarm.Click += new System.EventHandler(this.rbIce_Click);
             // 
             // rbNoIce
@@ -253,7 +253,7 @@
             this.rbNoIce.TabIndex = 3;
             this.rbNoIce.Text = "去冰";
             this.rbNoIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbNoIce.UseVisualStyleBackColor = false;
+            this.rbNoIce.UseVisualStyleBackColor = true;
             this.rbNoIce.Click += new System.EventHandler(this.rbIce_Click);
             // 
             // rbLittleIce
@@ -270,7 +270,7 @@
             this.rbLittleIce.TabIndex = 2;
             this.rbLittleIce.Text = "微冰";
             this.rbLittleIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbLittleIce.UseVisualStyleBackColor = false;
+            this.rbLittleIce.UseVisualStyleBackColor = true;
             this.rbLittleIce.Click += new System.EventHandler(this.rbIce_Click);
             // 
             // rbLessIce
@@ -287,7 +287,7 @@
             this.rbLessIce.TabIndex = 1;
             this.rbLessIce.Text = "少冰";
             this.rbLessIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbLessIce.UseVisualStyleBackColor = false;
+            this.rbLessIce.UseVisualStyleBackColor = true;
             this.rbLessIce.Click += new System.EventHandler(this.rbIce_Click);
             // 
             // rbMoreIce
@@ -304,7 +304,7 @@
             this.rbMoreIce.TabIndex = 0;
             this.rbMoreIce.Text = "正常";
             this.rbMoreIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbMoreIce.UseVisualStyleBackColor = false;
+            this.rbMoreIce.UseVisualStyleBackColor = true;
             this.rbMoreIce.Click += new System.EventHandler(this.rbIce_Click);
             // 
             // pnlChoosableIceRegion
@@ -326,9 +326,9 @@
             this.dgvOrderDetail.AllowUserToDeleteRows = false;
             this.dgvOrderDetail.AllowUserToResizeColumns = false;
             this.dgvOrderDetail.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.dgvOrderDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dgvOrderDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrderDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -336,14 +336,14 @@
             this.dgvOrderDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvOrderDetail.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvOrderDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("標楷體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("標楷體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrderDetail.ColumnHeadersHeight = 50;
             this.dgvOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvOrderDetail.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
@@ -355,13 +355,13 @@
             this.dgvOrderDetail.ReadOnly = true;
             this.dgvOrderDetail.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvOrderDetail.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvOrderDetail.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvOrderDetail.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrderDetail.RowTemplate.DividerHeight = 1;
             this.dgvOrderDetail.RowTemplate.Height = 50;
             this.dgvOrderDetail.RowTemplate.ReadOnly = true;
@@ -385,6 +385,7 @@
             // btnLogout
             // 
             this.btnLogout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.btnLogout.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnLogout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -427,6 +428,7 @@
             // btnRingUp
             // 
             this.btnRingUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
+            this.btnRingUp.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnRingUp.Enabled = false;
             this.btnRingUp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
             this.btnRingUp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
@@ -436,7 +438,7 @@
             this.btnRingUp.Size = new System.Drawing.Size(205, 50);
             this.btnRingUp.TabIndex = 0;
             this.btnRingUp.Text = "結帳";
-            this.btnRingUp.UseVisualStyleBackColor = false;
+            this.btnRingUp.UseVisualStyleBackColor = true;
             this.btnRingUp.Click += new System.EventHandler(this.btnRingUp_Click);
             // 
             // lblTotalTitle
@@ -486,7 +488,7 @@
             this.btnQuantityIncrease.Size = new System.Drawing.Size(75, 50);
             this.btnQuantityIncrease.TabIndex = 0;
             this.btnQuantityIncrease.Text = "加";
-            this.btnQuantityIncrease.UseVisualStyleBackColor = false;
+            this.btnQuantityIncrease.UseVisualStyleBackColor = true;
             this.btnQuantityIncrease.Click += new System.EventHandler(this.btnQuantityIncrease_Click);
             this.btnQuantityIncrease.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnQuantity_MouseDown);
             this.btnQuantityIncrease.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnQuantity_MouseUp);
@@ -503,7 +505,7 @@
             this.btnQuantityDecrease.Size = new System.Drawing.Size(75, 50);
             this.btnQuantityDecrease.TabIndex = 1;
             this.btnQuantityDecrease.Text = "減";
-            this.btnQuantityDecrease.UseVisualStyleBackColor = false;
+            this.btnQuantityDecrease.UseVisualStyleBackColor = true;
             this.btnQuantityDecrease.Click += new System.EventHandler(this.btnQuantityDecrease_Click);
             this.btnQuantityDecrease.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnQuantity_MouseDown);
             this.btnQuantityDecrease.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnQuantity_MouseUp);
@@ -644,9 +646,11 @@
             // 
             // Main
             // 
+            this.AcceptButton = this.btnRingUp;
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
+            this.CancelButton = this.btnLogout;
             this.ClientSize = new System.Drawing.Size(1000, 700);
             this.ControlBox = false;
             this.Controls.Add(this.pnlInformationRegion);

@@ -38,3 +38,4 @@ C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.Logi
 C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.Main.resources
 C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.Properties.Resources.resources
 C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.csproj.GenerateResource.Cache
+C:\Users\LiangEnJia\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Debug\BeveragePOS.RingUp.resources

@@ -340,6 +340,12 @@ namespace BeveragePOS
 
         private void btnRingUp_Click(object sender, EventArgs e)
         {
+            // 取得小計
+            int total = int.Parse(lblTotalContent.Text);
+            // 開啟 Login 表單
+            RingUp ringUp = new RingUp(total);
+            ringUp.ShowDialog();
+            // 產生訂單主檔及明細
             int orderNumber = int.Parse(lblOrderNumberContent.Text);
             OrderMaster orderMaster = new OrderMaster()
             {
@@ -348,7 +354,7 @@ namespace BeveragePOS
                 DateTime = DateTime.Now,
             };
             orderMaster.OrderDetail.AddRange(orderDetails.ToList());
-            // 將訂單資料塞入資料庫
+            // 將訂單塞入資料庫
             dataContext.OrderMaster.InsertOnSubmit(orderMaster);
             dataContext.SubmitChanges();
             // 重置訂單名細串列
@@ -365,7 +371,7 @@ namespace BeveragePOS
 
         private void btnManage_Click(object sender, EventArgs e)
         {
-            // 關啟 Manage 表單
+            // 開啟 Manage 表單
             Manage manage = new Manage();
             manage.ShowDialog();
             // 進入 Manage 表單
@@ -373,7 +379,7 @@ namespace BeveragePOS
 
         private void btnRecord_Click(object sender, EventArgs e)
         {
-            // 關啟 Record 表單
+            // 開啟 Record 表單
             Record record = new Record();
             record.ShowDialog();
             // 進入 Record 表單
@@ -386,7 +392,7 @@ namespace BeveragePOS
             lblMessage.Text = "己登出";
             // 設定登入記錄
             setSystemLog("登出");
-            // 關啟 Login 表單
+            // 開啟 Login 表單
             Login login = new Login(this);
             login.ShowDialog();
             // 進入 Login 表單
