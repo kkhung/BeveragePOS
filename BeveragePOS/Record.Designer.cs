@@ -28,23 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pnlSystemLog = new System.Windows.Forms.Panel();
+            this.lblSystemLogFrom = new System.Windows.Forms.Label();
             this.dtpSystemLogBegin = new System.Windows.Forms.DateTimePicker();
+            this.lblSystemLogTo = new System.Windows.Forms.Label();
             this.dtpSystemLogEnd = new System.Windows.Forms.DateTimePicker();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblSystemLogBegin = new System.Windows.Forms.Label();
-            this.lbSystemLog = new System.Windows.Forms.ListBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.btnReturn = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbOrderMaster = new System.Windows.Forms.ListBox();
-            this.dtpTradeLogEnd = new System.Windows.Forms.DateTimePicker();
+            this.lstSystemLog = new System.Windows.Forms.ListBox();
+            this.pnlTradeLog = new System.Windows.Forms.Panel();
+            this.lblTradeLogFrom = new System.Windows.Forms.Label();
             this.dtpTradeLogBegin = new System.Windows.Forms.DateTimePicker();
+            this.dtpTradeLogEnd = new System.Windows.Forms.DateTimePicker();
+            this.lblTradeLogTo = new System.Windows.Forms.Label();
+            this.lstTradeLog = new System.Windows.Forms.ListBox();
+            this.btnReturn = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlSystemLog.SuspendLayout();
+            this.pnlTradeLog.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pnlSystemLog
+            // 
+            this.pnlSystemLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(200)))), ((int)(((byte)(182)))));
+            this.pnlSystemLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlSystemLog.Controls.Add(this.lblSystemLogFrom);
+            this.pnlSystemLog.Controls.Add(this.dtpSystemLogBegin);
+            this.pnlSystemLog.Controls.Add(this.lblSystemLogTo);
+            this.pnlSystemLog.Controls.Add(this.dtpSystemLogEnd);
+            this.pnlSystemLog.Controls.Add(this.lstSystemLog);
+            this.pnlSystemLog.Location = new System.Drawing.Point(70, 30);
+            this.pnlSystemLog.Name = "pnlSystemLog";
+            this.pnlSystemLog.Size = new System.Drawing.Size(652, 182);
+            this.pnlSystemLog.TabIndex = 0;
+            // 
+            // lblSystemLogFrom
+            // 
+            this.lblSystemLogFrom.AutoSize = true;
+            this.lblSystemLogFrom.Location = new System.Drawing.Point(162, 27);
+            this.lblSystemLogFrom.Name = "lblSystemLogFrom";
+            this.lblSystemLogFrom.Size = new System.Drawing.Size(32, 21);
+            this.lblSystemLogFrom.TabIndex = 0;
+            this.lblSystemLogFrom.Text = "從";
             // 
             // dtpSystemLogBegin
             // 
@@ -52,7 +75,17 @@
             this.dtpSystemLogBegin.Name = "dtpSystemLogBegin";
             this.dtpSystemLogBegin.Size = new System.Drawing.Size(200, 33);
             this.dtpSystemLogBegin.TabIndex = 0;
-            this.dtpSystemLogBegin.ValueChanged += new System.EventHandler(this.dtpSystemLogBegin_ValueChanged);
+            this.dtpSystemLogBegin.TabStop = false;
+            this.dtpSystemLogBegin.ValueChanged += new System.EventHandler(this.dtpSystemLog_ValueChanged);
+            // 
+            // lblSystemLogTo
+            // 
+            this.lblSystemLogTo.AutoSize = true;
+            this.lblSystemLogTo.Location = new System.Drawing.Point(394, 27);
+            this.lblSystemLogTo.Name = "lblSystemLogTo";
+            this.lblSystemLogTo.Size = new System.Drawing.Size(32, 21);
+            this.lblSystemLogTo.TabIndex = 0;
+            this.lblSystemLogTo.Text = "至";
             // 
             // dtpSystemLogEnd
             // 
@@ -62,66 +95,86 @@
             this.dtpSystemLogEnd.Name = "dtpSystemLogEnd";
             this.dtpSystemLogEnd.Size = new System.Drawing.Size(200, 33);
             this.dtpSystemLogEnd.TabIndex = 0;
-            this.dtpSystemLogEnd.ValueChanged += new System.EventHandler(this.dtpSystemLogEnd_ValueChanged);
+            this.dtpSystemLogEnd.TabStop = false;
+            this.dtpSystemLogEnd.ValueChanged += new System.EventHandler(this.dtpSystemLog_ValueChanged);
             // 
-            // panel1
+            // lstSystemLog
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(200)))), ((int)(((byte)(182)))));
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.lblSystemLogBegin);
-            this.panel1.Controls.Add(this.lbSystemLog);
-            this.panel1.Controls.Add(this.dtpSystemLogEnd);
-            this.panel1.Controls.Add(this.dtpSystemLogBegin);
-            this.panel1.Location = new System.Drawing.Point(70, 30);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(652, 182);
-            this.panel1.TabIndex = 1;
+            this.lstSystemLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lstSystemLog.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lstSystemLog.FormattingEnabled = true;
+            this.lstSystemLog.ItemHeight = 19;
+            this.lstSystemLog.Location = new System.Drawing.Point(26, 64);
+            this.lstSystemLog.Name = "lstSystemLog";
+            this.lstSystemLog.Size = new System.Drawing.Size(600, 97);
+            this.lstSystemLog.TabIndex = 1;
+            this.lstSystemLog.TabStop = false;
+            this.lstSystemLog.UseTabStops = false;
             // 
-            // label1
+            // pnlTradeLog
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(394, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 21);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "至";
+            this.pnlTradeLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(200)))), ((int)(((byte)(182)))));
+            this.pnlTradeLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTradeLog.Controls.Add(this.lblTradeLogFrom);
+            this.pnlTradeLog.Controls.Add(this.dtpTradeLogBegin);
+            this.pnlTradeLog.Controls.Add(this.dtpTradeLogEnd);
+            this.pnlTradeLog.Controls.Add(this.lblTradeLogTo);
+            this.pnlTradeLog.Controls.Add(this.lstTradeLog);
+            this.pnlTradeLog.Controls.Add(this.btnReturn);
+            this.pnlTradeLog.Location = new System.Drawing.Point(70, 230);
+            this.pnlTradeLog.Name = "pnlTradeLog";
+            this.pnlTradeLog.Size = new System.Drawing.Size(652, 260);
+            this.pnlTradeLog.TabIndex = 0;
             // 
-            // lblSystemLogBegin
+            // lblTradeLogFrom
             // 
-            this.lblSystemLogBegin.AutoSize = true;
-            this.lblSystemLogBegin.Location = new System.Drawing.Point(162, 27);
-            this.lblSystemLogBegin.Name = "lblSystemLogBegin";
-            this.lblSystemLogBegin.Size = new System.Drawing.Size(32, 21);
-            this.lblSystemLogBegin.TabIndex = 2;
-            this.lblSystemLogBegin.Text = "從";
+            this.lblTradeLogFrom.AutoSize = true;
+            this.lblTradeLogFrom.Location = new System.Drawing.Point(162, 27);
+            this.lblTradeLogFrom.Name = "lblTradeLogFrom";
+            this.lblTradeLogFrom.Size = new System.Drawing.Size(32, 21);
+            this.lblTradeLogFrom.TabIndex = 0;
+            this.lblTradeLogFrom.Text = "從";
             // 
-            // lbSystemLog
+            // dtpTradeLogBegin
             // 
-            this.lbSystemLog.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbSystemLog.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lbSystemLog.FormattingEnabled = true;
-            this.lbSystemLog.ItemHeight = 19;
-            this.lbSystemLog.Location = new System.Drawing.Point(26, 64);
-            this.lbSystemLog.Name = "lbSystemLog";
-            this.lbSystemLog.Size = new System.Drawing.Size(600, 97);
-            this.lbSystemLog.TabIndex = 1;
-            this.lbSystemLog.UseTabStops = false;
+            this.dtpTradeLogBegin.Location = new System.Drawing.Point(194, 21);
+            this.dtpTradeLogBegin.Name = "dtpTradeLogBegin";
+            this.dtpTradeLogBegin.Size = new System.Drawing.Size(200, 33);
+            this.dtpTradeLogBegin.TabIndex = 0;
+            this.dtpTradeLogBegin.TabStop = false;
+            this.dtpTradeLogBegin.ValueChanged += new System.EventHandler(this.dtpTradeLog_ValueChanged);
             // 
-            // panel2
+            // dtpTradeLogEnd
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(178)))), ((int)(((byte)(200)))), ((int)(((byte)(182)))));
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.btnReturn);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Controls.Add(this.lbOrderMaster);
-            this.panel2.Controls.Add(this.dtpTradeLogEnd);
-            this.panel2.Controls.Add(this.dtpTradeLogBegin);
-            this.panel2.Location = new System.Drawing.Point(70, 230);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(652, 260);
-            this.panel2.TabIndex = 2;
+            this.dtpTradeLogEnd.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
+            this.dtpTradeLogEnd.CalendarTitleForeColor = System.Drawing.Color.BlanchedAlmond;
+            this.dtpTradeLogEnd.Location = new System.Drawing.Point(426, 21);
+            this.dtpTradeLogEnd.Name = "dtpTradeLogEnd";
+            this.dtpTradeLogEnd.Size = new System.Drawing.Size(200, 33);
+            this.dtpTradeLogEnd.TabIndex = 0;
+            this.dtpTradeLogEnd.TabStop = false;
+            this.dtpTradeLogEnd.ValueChanged += new System.EventHandler(this.dtpTradeLog_ValueChanged);
+            // 
+            // lblTradeLogTo
+            // 
+            this.lblTradeLogTo.AutoSize = true;
+            this.lblTradeLogTo.Location = new System.Drawing.Point(394, 27);
+            this.lblTradeLogTo.Name = "lblTradeLogTo";
+            this.lblTradeLogTo.Size = new System.Drawing.Size(32, 21);
+            this.lblTradeLogTo.TabIndex = 0;
+            this.lblTradeLogTo.Text = "至";
+            // 
+            // lstTradeLog
+            // 
+            this.lstTradeLog.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lstTradeLog.FormattingEnabled = true;
+            this.lstTradeLog.ItemHeight = 19;
+            this.lstTradeLog.Location = new System.Drawing.Point(26, 64);
+            this.lstTradeLog.Name = "lstTradeLog";
+            this.lstTradeLog.Size = new System.Drawing.Size(600, 175);
+            this.lstTradeLog.TabIndex = 1;
+            this.lstTradeLog.TabStop = false;
+            this.lstTradeLog.DoubleClick += new System.EventHandler(this.lstTradeLog_DoubleClick);
             // 
             // btnReturn
             // 
@@ -132,59 +185,12 @@
             this.btnReturn.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnReturn.Location = new System.Drawing.Point(26, 21);
             this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(60, 30);
-            this.btnReturn.TabIndex = 13;
+            this.btnReturn.Size = new System.Drawing.Size(75, 33);
+            this.btnReturn.TabIndex = 2;
             this.btnReturn.Text = "返回";
-            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Visible = false;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(394, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 21);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "至";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(162, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 21);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "從";
-            // 
-            // lbOrderMaster
-            // 
-            this.lbOrderMaster.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lbOrderMaster.FormattingEnabled = true;
-            this.lbOrderMaster.ItemHeight = 19;
-            this.lbOrderMaster.Location = new System.Drawing.Point(26, 64);
-            this.lbOrderMaster.Name = "lbOrderMaster";
-            this.lbOrderMaster.Size = new System.Drawing.Size(600, 175);
-            this.lbOrderMaster.TabIndex = 1;
-            this.lbOrderMaster.DoubleClick += new System.EventHandler(this.lbOrderMaster_DoubleClick);
-            // 
-            // dtpTradeLogEnd
-            // 
-            this.dtpTradeLogEnd.CalendarTitleBackColor = System.Drawing.SystemColors.ControlText;
-            this.dtpTradeLogEnd.CalendarTitleForeColor = System.Drawing.Color.BlanchedAlmond;
-            this.dtpTradeLogEnd.Location = new System.Drawing.Point(426, 21);
-            this.dtpTradeLogEnd.Name = "dtpTradeLogEnd";
-            this.dtpTradeLogEnd.Size = new System.Drawing.Size(200, 33);
-            this.dtpTradeLogEnd.TabIndex = 0;
-            this.dtpTradeLogEnd.ValueChanged += new System.EventHandler(this.dtpTradeLogEnd_ValueChanged);
-            // 
-            // dtpTradeLogBegin
-            // 
-            this.dtpTradeLogBegin.Location = new System.Drawing.Point(194, 21);
-            this.dtpTradeLogBegin.Name = "dtpTradeLogBegin";
-            this.dtpTradeLogBegin.Size = new System.Drawing.Size(200, 33);
-            this.dtpTradeLogBegin.TabIndex = 0;
-            this.dtpTradeLogBegin.ValueChanged += new System.EventHandler(this.dtpTradeLogBegin_ValueChanged);
             // 
             // btnExit
             // 
@@ -196,7 +202,7 @@
             this.btnExit.Location = new System.Drawing.Point(225, 520);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(350, 50);
-            this.btnExit.TabIndex = 12;
+            this.btnExit.TabIndex = 1;
             this.btnExit.Text = "離開";
             this.btnExit.UseVisualStyleBackColor = true;
             // 
@@ -208,9 +214,9 @@
             this.CancelButton = this.btnExit;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.ControlBox = false;
+            this.Controls.Add(this.pnlSystemLog);
+            this.Controls.Add(this.pnlTradeLog);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("標楷體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -223,30 +229,29 @@
             this.Text = "記錄";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Record_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlSystemLog.ResumeLayout(false);
+            this.pnlSystemLog.PerformLayout();
+            this.pnlTradeLog.ResumeLayout(false);
+            this.pnlTradeLog.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.Panel pnlSystemLog;
+        private System.Windows.Forms.Label lblSystemLogFrom;
         private System.Windows.Forms.DateTimePicker dtpSystemLogBegin;
+        private System.Windows.Forms.Label lblSystemLogTo;
         private System.Windows.Forms.DateTimePicker dtpSystemLogEnd;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DateTimePicker dtpTradeLogEnd;
+        private System.Windows.Forms.ListBox lstSystemLog;
+        private System.Windows.Forms.Panel pnlTradeLog;
+        private System.Windows.Forms.Label lblTradeLogFrom;
         private System.Windows.Forms.DateTimePicker dtpTradeLogBegin;
-        private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.ListBox lbOrderMaster;
-        private System.Windows.Forms.Label lblSystemLogBegin;
-        private System.Windows.Forms.ListBox lbSystemLog;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTradeLogTo;
+        private System.Windows.Forms.DateTimePicker dtpTradeLogEnd;
+        private System.Windows.Forms.ListBox lstTradeLog;
         private System.Windows.Forms.Button btnReturn;
-
+        private System.Windows.Forms.Button btnExit;
     }
 }

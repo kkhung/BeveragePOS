@@ -29,10 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.flpCatelogiesRegion = new System.Windows.Forms.FlowLayoutPanel();
             this.flpBeveragesRegion = new System.Windows.Forms.FlowLayoutPanel();
@@ -71,6 +70,7 @@
             this.pnlFavorAndQuantityRegion = new System.Windows.Forms.Panel();
             this.pnlInformationRegion = new System.Windows.Forms.Panel();
             this.lblMessage = new System.Windows.Forms.Label();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.pnlChoosableSugarRegion.SuspendLayout();
             this.pnlChoosableIceRegion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrderDetail)).BeginInit();
@@ -217,7 +217,7 @@
             this.btnDelete.Location = new System.Drawing.Point(26, 265);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(460, 50);
-            this.btnDelete.TabIndex = 3;
+            this.btnDelete.TabIndex = 1;
             this.btnDelete.Text = "刪除";
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -233,7 +233,7 @@
             this.rbWarm.Location = new System.Drawing.Point(300, 0);
             this.rbWarm.Name = "rbWarm";
             this.rbWarm.Size = new System.Drawing.Size(75, 50);
-            this.rbWarm.TabIndex = 14;
+            this.rbWarm.TabIndex = 4;
             this.rbWarm.Text = "常溫";
             this.rbWarm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbWarm.UseVisualStyleBackColor = false;
@@ -250,7 +250,7 @@
             this.rbNoIce.Location = new System.Drawing.Point(225, 0);
             this.rbNoIce.Name = "rbNoIce";
             this.rbNoIce.Size = new System.Drawing.Size(75, 50);
-            this.rbNoIce.TabIndex = 13;
+            this.rbNoIce.TabIndex = 3;
             this.rbNoIce.Text = "去冰";
             this.rbNoIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbNoIce.UseVisualStyleBackColor = false;
@@ -267,7 +267,7 @@
             this.rbLittleIce.Location = new System.Drawing.Point(150, 0);
             this.rbLittleIce.Name = "rbLittleIce";
             this.rbLittleIce.Size = new System.Drawing.Size(75, 50);
-            this.rbLittleIce.TabIndex = 12;
+            this.rbLittleIce.TabIndex = 2;
             this.rbLittleIce.Text = "微冰";
             this.rbLittleIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbLittleIce.UseVisualStyleBackColor = false;
@@ -284,7 +284,7 @@
             this.rbLessIce.Location = new System.Drawing.Point(75, 0);
             this.rbLessIce.Name = "rbLessIce";
             this.rbLessIce.Size = new System.Drawing.Size(75, 50);
-            this.rbLessIce.TabIndex = 11;
+            this.rbLessIce.TabIndex = 1;
             this.rbLessIce.Text = "少冰";
             this.rbLessIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbLessIce.UseVisualStyleBackColor = false;
@@ -301,7 +301,7 @@
             this.rbMoreIce.Location = new System.Drawing.Point(0, 0);
             this.rbMoreIce.Name = "rbMoreIce";
             this.rbMoreIce.Size = new System.Drawing.Size(75, 50);
-            this.rbMoreIce.TabIndex = 10;
+            this.rbMoreIce.TabIndex = 0;
             this.rbMoreIce.Text = "正常";
             this.rbMoreIce.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.rbMoreIce.UseVisualStyleBackColor = false;
@@ -326,9 +326,9 @@
             this.dgvOrderDetail.AllowUserToDeleteRows = false;
             this.dgvOrderDetail.AllowUserToResizeColumns = false;
             this.dgvOrderDetail.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.dgvOrderDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.dgvOrderDetail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvOrderDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -336,24 +336,16 @@
             this.dgvOrderDetail.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgvOrderDetail.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
             this.dgvOrderDetail.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrderDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(153)))), ((int)(((byte)(171)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("標楷體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrderDetail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.dgvOrderDetail.ColumnHeadersHeight = 50;
             this.dgvOrderDetail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvOrderDetail.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvOrderDetail.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvOrderDetail.EnableHeadersVisualStyles = false;
             this.dgvOrderDetail.GridColor = System.Drawing.Color.Black;
@@ -363,13 +355,13 @@
             this.dgvOrderDetail.ReadOnly = true;
             this.dgvOrderDetail.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgvOrderDetail.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvOrderDetail.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvOrderDetail.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvOrderDetail.RowTemplate.DividerHeight = 1;
             this.dgvOrderDetail.RowTemplate.Height = 50;
             this.dgvOrderDetail.RowTemplate.ReadOnly = true;
@@ -381,7 +373,8 @@
             this.dgvOrderDetail.ShowEditingIcon = false;
             this.dgvOrderDetail.ShowRowErrors = false;
             this.dgvOrderDetail.Size = new System.Drawing.Size(460, 165);
-            this.dgvOrderDetail.TabIndex = 3;
+            this.dgvOrderDetail.TabIndex = 0;
+            this.dgvOrderDetail.TabStop = false;
             this.dgvOrderDetail.SelectionChanged += new System.EventHandler(this.dgvOrderDetail_SelectionChanged);
             // 
             // timeTimer
@@ -398,7 +391,7 @@
             this.btnLogout.Location = new System.Drawing.Point(411, 21);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(75, 50);
-            this.btnLogout.TabIndex = 11;
+            this.btnLogout.TabIndex = 3;
             this.btnLogout.Text = "登出";
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
@@ -412,9 +405,10 @@
             this.btnManage.Location = new System.Drawing.Point(241, 21);
             this.btnManage.Name = "btnManage";
             this.btnManage.Size = new System.Drawing.Size(75, 50);
-            this.btnManage.TabIndex = 10;
+            this.btnManage.TabIndex = 1;
             this.btnManage.Text = "管理";
             this.btnManage.UseVisualStyleBackColor = true;
+            this.btnManage.Click += new System.EventHandler(this.btnManage_Click);
             // 
             // btnRecord
             // 
@@ -425,7 +419,7 @@
             this.btnRecord.Location = new System.Drawing.Point(326, 21);
             this.btnRecord.Name = "btnRecord";
             this.btnRecord.Size = new System.Drawing.Size(75, 50);
-            this.btnRecord.TabIndex = 9;
+            this.btnRecord.TabIndex = 2;
             this.btnRecord.Text = "記錄";
             this.btnRecord.UseVisualStyleBackColor = true;
             this.btnRecord.Click += new System.EventHandler(this.btnRecord_Click);
@@ -440,7 +434,7 @@
             this.btnRingUp.Location = new System.Drawing.Point(26, 21);
             this.btnRingUp.Name = "btnRingUp";
             this.btnRingUp.Size = new System.Drawing.Size(205, 50);
-            this.btnRingUp.TabIndex = 7;
+            this.btnRingUp.TabIndex = 0;
             this.btnRingUp.Text = "結帳";
             this.btnRingUp.UseVisualStyleBackColor = false;
             this.btnRingUp.Click += new System.EventHandler(this.btnRingUp_Click);
@@ -452,7 +446,7 @@
             this.lblTotalTitle.Location = new System.Drawing.Point(26, 215);
             this.lblTotalTitle.Name = "lblTotalTitle";
             this.lblTotalTitle.Size = new System.Drawing.Size(100, 50);
-            this.lblTotalTitle.TabIndex = 12;
+            this.lblTotalTitle.TabIndex = 0;
             this.lblTotalTitle.Text = "小計︰";
             this.lblTotalTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -464,7 +458,7 @@
             this.lblTotalContent.Location = new System.Drawing.Point(126, 215);
             this.lblTotalContent.Name = "lblTotalContent";
             this.lblTotalContent.Size = new System.Drawing.Size(285, 50);
-            this.lblTotalContent.TabIndex = 13;
+            this.lblTotalContent.TabIndex = 0;
             this.lblTotalContent.Text = "0";
             this.lblTotalContent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -476,7 +470,7 @@
             this.lblDollar.Location = new System.Drawing.Point(411, 215);
             this.lblDollar.Name = "lblDollar";
             this.lblDollar.Size = new System.Drawing.Size(75, 50);
-            this.lblDollar.TabIndex = 14;
+            this.lblDollar.TabIndex = 0;
             this.lblDollar.Text = "元";
             this.lblDollar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -490,7 +484,7 @@
             this.btnQuantityIncrease.Location = new System.Drawing.Point(411, 26);
             this.btnQuantityIncrease.Name = "btnQuantityIncrease";
             this.btnQuantityIncrease.Size = new System.Drawing.Size(75, 50);
-            this.btnQuantityIncrease.TabIndex = 15;
+            this.btnQuantityIncrease.TabIndex = 0;
             this.btnQuantityIncrease.Text = "加";
             this.btnQuantityIncrease.UseVisualStyleBackColor = false;
             this.btnQuantityIncrease.Click += new System.EventHandler(this.btnQuantityIncrease_Click);
@@ -507,7 +501,7 @@
             this.btnQuantityDecrease.Location = new System.Drawing.Point(411, 76);
             this.btnQuantityDecrease.Name = "btnQuantityDecrease";
             this.btnQuantityDecrease.Size = new System.Drawing.Size(75, 50);
-            this.btnQuantityDecrease.TabIndex = 15;
+            this.btnQuantityDecrease.TabIndex = 1;
             this.btnQuantityDecrease.Text = "減";
             this.btnQuantityDecrease.UseVisualStyleBackColor = false;
             this.btnQuantityDecrease.Click += new System.EventHandler(this.btnQuantityDecrease_Click);
@@ -525,7 +519,7 @@
             this.lblOrderNumberTitle.Location = new System.Drawing.Point(26, 0);
             this.lblOrderNumberTitle.Name = "lblOrderNumberTitle";
             this.lblOrderNumberTitle.Size = new System.Drawing.Size(80, 50);
-            this.lblOrderNumberTitle.TabIndex = 16;
+            this.lblOrderNumberTitle.TabIndex = 0;
             this.lblOrderNumberTitle.Text = "單號︰";
             this.lblOrderNumberTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -535,7 +529,7 @@
             this.lblOrderNumberContent.Location = new System.Drawing.Point(106, 0);
             this.lblOrderNumberContent.Name = "lblOrderNumberContent";
             this.lblOrderNumberContent.Size = new System.Drawing.Size(100, 50);
-            this.lblOrderNumberContent.TabIndex = 16;
+            this.lblOrderNumberContent.TabIndex = 0;
             this.lblOrderNumberContent.Text = "0";
             this.lblOrderNumberContent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -568,7 +562,7 @@
             this.pnlOrderRegion.Location = new System.Drawing.Point(30, 30);
             this.pnlOrderRegion.Name = "pnlOrderRegion";
             this.pnlOrderRegion.Size = new System.Drawing.Size(512, 336);
-            this.pnlOrderRegion.TabIndex = 17;
+            this.pnlOrderRegion.TabIndex = 0;
             // 
             // pnlEmployeeTitle
             // 
@@ -577,7 +571,7 @@
             this.pnlEmployeeTitle.Location = new System.Drawing.Point(306, 0);
             this.pnlEmployeeTitle.Name = "pnlEmployeeTitle";
             this.pnlEmployeeTitle.Size = new System.Drawing.Size(80, 50);
-            this.pnlEmployeeTitle.TabIndex = 17;
+            this.pnlEmployeeTitle.TabIndex = 0;
             this.pnlEmployeeTitle.Text = "員工︰";
             this.pnlEmployeeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -588,7 +582,7 @@
             this.lblEmployeeContent.Location = new System.Drawing.Point(386, 0);
             this.lblEmployeeContent.Name = "lblEmployeeContent";
             this.lblEmployeeContent.Size = new System.Drawing.Size(100, 50);
-            this.lblEmployeeContent.TabIndex = 16;
+            this.lblEmployeeContent.TabIndex = 0;
             this.lblEmployeeContent.Text = "未登入";
             this.lblEmployeeContent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -604,7 +598,7 @@
             this.pnlControlsRegion.Location = new System.Drawing.Point(30, 578);
             this.pnlControlsRegion.Name = "pnlControlsRegion";
             this.pnlControlsRegion.Size = new System.Drawing.Size(512, 92);
-            this.pnlControlsRegion.TabIndex = 18;
+            this.pnlControlsRegion.TabIndex = 0;
             // 
             // pnlFavorAndQuantityRegion
             // 
@@ -618,7 +612,7 @@
             this.pnlFavorAndQuantityRegion.Location = new System.Drawing.Point(30, 396);
             this.pnlFavorAndQuantityRegion.Name = "pnlFavorAndQuantityRegion";
             this.pnlFavorAndQuantityRegion.Size = new System.Drawing.Size(512, 152);
-            this.pnlFavorAndQuantityRegion.TabIndex = 19;
+            this.pnlFavorAndQuantityRegion.TabIndex = 0;
             // 
             // pnlInformationRegion
             // 
@@ -631,7 +625,7 @@
             this.pnlInformationRegion.Location = new System.Drawing.Point(572, 30);
             this.pnlInformationRegion.Name = "pnlInformationRegion";
             this.pnlInformationRegion.Size = new System.Drawing.Size(398, 94);
-            this.pnlInformationRegion.TabIndex = 20;
+            this.pnlInformationRegion.TabIndex = 0;
             // 
             // lblMessage
             // 
@@ -639,8 +633,14 @@
             this.lblMessage.Location = new System.Drawing.Point(26, 52);
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(76, 21);
-            this.lblMessage.TabIndex = 1;
+            this.lblMessage.TabIndex = 0;
             this.lblMessage.Text = "未登入";
+            // 
+            // toolTip
+            // 
+            this.toolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(211)))), ((int)(((byte)(154)))));
+            this.toolTip.ForeColor = System.Drawing.Color.Black;
+            this.toolTip.ToolTipTitle = "單價";
             // 
             // Main
             // 
@@ -716,6 +716,7 @@
         private System.Windows.Forms.Label pnlEmployeeTitle;
         internal System.Windows.Forms.Label lblEmployeeContent;
         internal System.Windows.Forms.Label lblMessage;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }
 

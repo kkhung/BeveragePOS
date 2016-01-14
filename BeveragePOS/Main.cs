@@ -11,7 +11,7 @@ namespace BeveragePOS
     public partial class Main : Form
     {
         private BeveragePOSDataContext dataContext = new BeveragePOSDataContext();
-        // 可用來當作DataGridView資料來源的訂單名細串列
+        // 用來當作 DataGridView 資料來源的訂單名細串列
         private BindingList<OrderDetail> orderDetails = new BindingList<OrderDetail>();
         // RadioButton確認時的顏色
         private Color colorRbChecked = Color.FromArgb(145, 106, 94);
@@ -257,60 +257,54 @@ namespace BeveragePOS
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            // 判斷是否選中交易項目
-            if (dgvOrderDetail.SelectedRows.Count > 0)
+            Button btnDelete = sender as Button;
+            OrderDetail orderDetail = orderDetails[dgvOrderDetail.SelectedRows[0].Index];
+            // 刪除 ChangeSet 中同筆交易項目
+            foreach (var insert in dataContext.GetChangeSet().Inserts)
             {
-                Button btnDelete = sender as Button;
-                // 刪除選取的交易
-                orderDetails.RemoveAt(dgvOrderDetail.SelectedRows[0].Index);
-                // 計算小計
-                countTotal();
-                // 判斷是否有未完成的交易
-                if (dgvOrderDetail.Rows.Count > 0)
+                if (insert.Equals(orderDetail))
                 {
-                    // 選取餘下的最後一筆交易項目
-                    dgvOrderDetail.Rows[dgvOrderDetail.Rows.Count - 1].Selected = true;
-                    dgvOrderDetail.Select();
+                    dataContext.GetTable(insert.GetType()).DeleteOnSubmit(insert);
                 }
-                else
-                {
-                    exitTradeMode();
-                }
-                // 顯示刪除操作的訊息
-                lblMessage.Text = "刪除1筆交易項目";
             }
+            // 刪除選取的交易項目
+            orderDetails.Remove(orderDetail);
+            // 計算小計
+            countTotal();
+            // 判斷是否有未完成的交易
+            if (dgvOrderDetail.Rows.Count > 0)
+            {
+                // 選取餘下的最後一筆交易項目
+                dgvOrderDetail.Rows[dgvOrderDetail.Rows.Count - 1].Selected = true;
+                dgvOrderDetail.Select();
+            }
+            else
+            {
+                // 離開交易模式
+                exitTradeMode();
+            }
+            // 顯示刪除操作的訊息
+            lblMessage.Text = "刪除1筆交易項目";
         }
 
         private void rbSugar_Click(object sender, EventArgs e)
         {
-            // 判斷是否選中交易項目
-            if (dgvOrderDetail.SelectedRows.Count > 0)
-            {
-                orderDetails[dgvOrderDetail.SelectedRows[0].Index].Sugar = (sender as RadioButton).Text;
-            }
+            orderDetails[dgvOrderDetail.SelectedRows[0].Index].Sugar = (sender as RadioButton).Text;
             // 清空訊息
             lblMessage.Text = "";
         }
 
         private void rbIce_Click(object sender, EventArgs e)
         {
-            // 判斷是否選中交易項目
-            if (dgvOrderDetail.SelectedRows.Count > 0)
-            {
-                orderDetails[dgvOrderDetail.SelectedRows[0].Index].Ice = (sender as RadioButton).Text;
-            }
+            orderDetails[dgvOrderDetail.SelectedRows[0].Index].Ice = (sender as RadioButton).Text;
             // 清空訊息
             lblMessage.Text = "";
         }
 
         private void btnQuantityIncrease_Click(object sender, EventArgs e)
         {
-            // 判斷是否選中交易項目
-            if (dgvOrderDetail.SelectedRows.Count > 0)
-            {
-                // 數量加一
-                orderDetails[dgvOrderDetail.SelectedRows[0].Index].Quantity += 1;
-            }
+            // 數量加一
+            orderDetails[dgvOrderDetail.SelectedRows[0].Index].Quantity += 1;
             // 重新計算小計
             countTotal();
             // 清空訊息
@@ -319,13 +313,9 @@ namespace BeveragePOS
 
         private void btnQuantityDecrease_Click(object sender, EventArgs e)
         {
-            // 判斷是否選中交易項目
-            if (dgvOrderDetail.SelectedRows.Count > 0)
-            {
-                int index = dgvOrderDetail.SelectedRows[0].Index;
-                // 數量減一但不可小於一
-                orderDetails[index].Quantity = (orderDetails[index].Quantity == 1) ? 1 : orderDetails[index].Quantity - 1;
-            }
+            int index = dgvOrderDetail.SelectedRows[0].Index;
+            // 數量減一但不可小於一
+            orderDetails[index].Quantity = (orderDetails[index].Quantity == 1) ? 1 : orderDetails[index].Quantity - 1;
             // 重新計算小計
             countTotal();
             // 清空訊息
@@ -358,14 +348,6 @@ namespace BeveragePOS
                 DateTime = DateTime.Now,
             };
             orderMaster.OrderDetail.AddRange(orderDetails.ToList());
-            // 清空 ChangeSet
-            foreach (var insert in dataContext.GetChangeSet().Inserts)
-            {
-                if (!orderDetails.Contains(insert))
-                {
-                    dataContext.GetTable(insert.GetType()).DeleteOnSubmit(insert);
-                }
-            }
             // 將訂單資料塞入資料庫
             dataContext.OrderMaster.InsertOnSubmit(orderMaster);
             dataContext.SubmitChanges();
@@ -402,11 +384,6 @@ namespace BeveragePOS
             // 設定登出訊息
             lblEmployeeContent.Text = "未登入";
             lblMessage.Text = "己登出";
-            // 清空 ChangeSet
-            foreach (var insert in dataContext.GetChangeSet().Inserts)
-            {
-                dataContext.GetTable(insert.GetType()).DeleteOnSubmit(insert);
-            }
             // 設定登入記錄
             setSystemLog("登出");
             // 關啟 Login 表單
@@ -437,6 +414,7 @@ namespace BeveragePOS
                 btnBeverage.Size = new Size(200, 50);
                 btnBeverage.Tag = beverage;
                 btnBeverage.Text = beverage.Name;
+                toolTip.SetToolTip(btnBeverage, beverage.Price + " 元");
                 btnBeverage.UseVisualStyleBackColor = true;
             }
             ResumeLayout();

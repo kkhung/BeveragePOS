@@ -1,6 +1,6 @@
 ﻿namespace BeveragePOS
 {
-    partial class Manage
+    partial class NumberPad
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Manage
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 600);
-            this.Name = "Manage";
-            this.Text = "Manage";
-            this.Load += new System.EventHandler(this.Manage_Load);
-            this.ResumeLayout(false);
-
+            this.Text = "NumberPad";
         }
 
         #endregion
