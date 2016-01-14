@@ -11,7 +11,7 @@ namespace BeveragePOS
     public partial class Main : Form
     {
         private BeveragePOSDataContext dataContext = new BeveragePOSDataContext();
-        // 可用來當作DataGridViem資料來源的交易列表集合
+        // 可用來當作DataGridView資料來源的訂單名細串列
         private BindingList<OrderDetail> orderDetails = new BindingList<OrderDetail>();
         // RadioButton確認時的顏色
         private Color colorRbChecked = Color.FromArgb(145, 106, 94);
@@ -25,11 +25,11 @@ namespace BeveragePOS
         private Color colorBtnMouseDown = Color.FromArgb(132, 96, 85);
         // 滑鼠經過按鈕時的顏色
         private Color colorBtnMouseOver = Color.FromArgb(145, 106, 94);
-        // 飲料列表的集合
+        // 飲料串列
         private List<Beverage> beverages;
         // 用來暫存數量加減的按鈕
         private Button btnQuantity;
-        // 用以表單是否可以關閉
+        // 表單是否可以關閉
         private bool _isCloseable = false;
         // 員工
         private Employee _employee = new Employee();
@@ -57,40 +57,6 @@ namespace BeveragePOS
             lblTotalContent.Text = total.ToString();
         }
 
-        // 於資料庫中取得飲料的資料
-        private void getBeverages()
-        {
-            var results = from be in dataContext.Beverage where be.IsSale == true select be;
-            beverages = results.ToList();
-        }
-
-        private void getOrderNumber()
-        {
-            // 從資料庫中找出並接續之前的單號，每天會重新計數
-            var results = from or in dataContext.OrderMaster where or.DateTime.Day == DateTime.Now.Day select or.Number;
-            lblOrderNumberContent.Text = (results.Count() > 0) ? (results.Max() + 1).ToString() : "1" ;
-        }
-
-        private void initialDgvOrderDetail()
-        {
-            // 自訂 dgvOrderDetail 的 UI 樣示
-            dgvOrderDetail.SuspendLayout();
-            dgvOrderDetail.DataSource = orderDetails;
-            dgvOrderDetail.Columns.Remove("ID");
-            dgvOrderDetail.Columns.Remove("OrderMasterID");
-            dgvOrderDetail.Columns.Remove("Beverage");
-            dgvOrderDetail.Columns.Remove("OrderMaster");
-            dgvOrderDetail.Columns["BeverageName"].HeaderText = "名稱";
-            dgvOrderDetail.Columns["Sugar"].HeaderText = "甜度";
-            dgvOrderDetail.Columns["Ice"].HeaderText = "冰塊";
-            dgvOrderDetail.Columns["Quantity"].HeaderText = "數量";
-            dgvOrderDetail.Columns["BeverageName"].Width = 198;
-            dgvOrderDetail.Columns["Sugar"].Width = 80;
-            dgvOrderDetail.Columns["Ice"].Width = 80;
-            dgvOrderDetail.Columns["Quantity"].Width = 100;
-            dgvOrderDetail.ResumeLayout();
-        }
-
         private void createRbCategory()
         {
             // 取得飲料的分類並產生按鈕
@@ -107,11 +73,130 @@ namespace BeveragePOS
                 rbCategory.FlatStyle = FlatStyle.Flat;
                 rbCategory.Margin = new Padding(5);
                 rbCategory.Parent = flpCatelogiesRegion;
-                rbCategory.Size = new Size(flpCatelogiesRegion.Width / 3 - 35, 50);
+                rbCategory.Size = new Size(200, 50);
                 rbCategory.Text = category;
                 rbCategory.TextAlign = ContentAlignment.MiddleCenter;
                 rbCategory.UseVisualStyleBackColor = true;
             }
+        }
+
+        // 於資料庫中取得飲料的資料
+        private void getBeverages()
+        {
+            var results = from be in dataContext.Beverage where be.IsSale == true select be;
+            beverages = results.ToList();
+        }
+
+        private void getOrderNumber()
+        {
+            // 從資料庫中找出並接續之前的單號，每天會重新計數
+            var results = from or in dataContext.OrderMaster where or.DateTime.Day == DateTime.Now.Day select or.Number;
+            lblOrderNumberContent.Text = (results.Count() > 0) ? (results.Max() + 1).ToString() : "1";
+        }
+
+        private void goTradeMode()
+        {
+            int index = dgvOrderDetail.SelectedRows[0].Index;
+            OrderDetail orderDetail = orderDetails[index];
+            bool isChoosableSugar = orderDetail.Beverage.IsChoosableSugar;
+            bool isChoosableIce = orderDetail.Beverage.IsChoosableIce;
+            // 開啟刪除按鈕的功能
+            btnDelete.Enabled = true;
+            btnDelete.BackColor = colorBtnTrade;
+            // 開啟甜度按鈕的功能
+            pnlChoosableSugarRegion.Enabled = isChoosableSugar;
+            foreach (RadioButton rbSugar in pnlChoosableSugarRegion.Controls)
+            {
+                rbSugar.BackColor = isChoosableSugar ? colorBtnTrade : colorBtnDisable;
+                rbSugar.Checked = false;
+                rbSugar.Checked = (orderDetail.Sugar == rbSugar.Text) ? true : false;
+            }
+            // 開啟冰塊按鈕的功能
+            pnlChoosableIceRegion.Enabled = isChoosableIce;
+            foreach (RadioButton rbIce in pnlChoosableIceRegion.Controls)
+            {
+                rbIce.BackColor = isChoosableIce ? colorBtnTrade : colorBtnDisable;
+                rbIce.Checked = (orderDetail.Ice == rbIce.Text) ? true : false;
+            }
+            // 開啟加按鈕的功能
+            btnQuantityIncrease.Enabled = true;
+            btnQuantityIncrease.BackColor = colorBtnTrade;
+            // 開啟減按鈕的功能
+            btnQuantityDecrease.Enabled = true;
+            btnQuantityDecrease.BackColor = colorBtnTrade;
+            // 開啟結帳按鈕的功能
+            btnRingUp.Enabled = true;
+            btnRingUp.BackColor = colorBtnControl;
+            // 關閉管理按鈕的功能
+            btnManage.Enabled = false;
+            btnManage.BackColor = colorBtnDisable;
+            // 關閉記錄按鈕的功能
+            btnRecord.Enabled = false;
+            btnRecord.BackColor = colorBtnDisable;
+            // 關閉登出按鈕的功能
+            btnLogout.Enabled = false;
+            btnLogout.BackColor = colorBtnDisable;
+        }
+
+        private void exitTradeMode()
+        {
+            // 關閉刪除按鈕的功能
+            btnDelete.Enabled = false;
+            btnDelete.BackColor = colorBtnDisable;
+            // 關閉甜度按鈕的功能
+            pnlChoosableSugarRegion.Enabled = false;
+            foreach (RadioButton rbSugar in pnlChoosableSugarRegion.Controls)
+            {
+                rbSugar.BackColor = colorBtnDisable;
+                rbSugar.Checked = false;
+            }
+            // 關閉冰塊按鈕的功能
+            pnlChoosableIceRegion.Enabled = false;
+            foreach (RadioButton rbIce in pnlChoosableIceRegion.Controls)
+            {
+                rbIce.BackColor = colorBtnDisable;
+                rbIce.Checked = false;
+            }
+            // 關閉加按鈕的功能
+            btnQuantityIncrease.Enabled = false;
+            btnQuantityIncrease.BackColor = colorBtnDisable;
+            // 關閉減按鈕的功能
+            btnQuantityDecrease.Enabled = false;
+            btnQuantityDecrease.BackColor = colorBtnDisable;
+            // 關閉結帳按鈕的功能
+            btnRingUp.Enabled = false;
+            btnRingUp.BackColor = colorBtnDisable;
+            // 開啟管理按鈕的功能
+            btnManage.Enabled = true;
+            btnManage.BackColor = colorBtnControl;
+            // 開啟記錄按鈕的功能
+            btnRecord.Enabled = true;
+            btnRecord.BackColor = colorBtnControl;
+            // 開啟登出按鈕的功能
+            btnLogout.Enabled = true;
+            btnLogout.BackColor = colorBtnControl;
+        }
+
+        private void initialDgvOrderDetail()
+        {
+            // 自訂 dgvOrderDetail 的 UI 樣示
+            SuspendLayout();
+            dgvOrderDetail.SuspendLayout();
+            dgvOrderDetail.DataSource = orderDetails;
+            dgvOrderDetail.Columns.Remove("ID");
+            dgvOrderDetail.Columns.Remove("OrderMasterID");
+            dgvOrderDetail.Columns.Remove("Beverage");
+            dgvOrderDetail.Columns.Remove("OrderMaster");
+            dgvOrderDetail.Columns["BeverageName"].HeaderText = "名稱";
+            dgvOrderDetail.Columns["Sugar"].HeaderText = "甜度";
+            dgvOrderDetail.Columns["Ice"].HeaderText = "冰塊";
+            dgvOrderDetail.Columns["Quantity"].HeaderText = "數量";
+            dgvOrderDetail.Columns["BeverageName"].Width = 198;
+            dgvOrderDetail.Columns["Sugar"].Width = 80;
+            dgvOrderDetail.Columns["Ice"].Width = 80;
+            dgvOrderDetail.Columns["Quantity"].Width = 100;
+            dgvOrderDetail.ResumeLayout();
+            ResumeLayout();
         }
 
         internal void setSystemLog(string description)
@@ -137,12 +222,12 @@ namespace BeveragePOS
             // 自訂初始化開始
             getBeverages();
             getOrderNumber();
-            SuspendLayout();
             flpCatelogiesRegion.SuspendLayout();
+            SuspendLayout();
             initialDgvOrderDetail();
             createRbCategory();
-            flpCatelogiesRegion.ResumeLayout();
             ResumeLayout();
+            flpCatelogiesRegion.ResumeLayout();
             if (flpCatelogiesRegion.Controls.Count > 0)
             {
                 // 有分類按鈕時預設點擊第一顆按鈕
@@ -165,46 +250,8 @@ namespace BeveragePOS
             // 判斷是否選中交易項目
             if (dgvOrderDetail.SelectedRows.Count > 0)
             {
-                int index = dgvOrderDetail.SelectedRows[0].Index;
-                OrderDetail orderDetail = orderDetails[index];
-                bool isChoosableSugar = orderDetail.Beverage.IsChoosableSugar;
-                bool isChoosableIce = orderDetail.Beverage.IsChoosableIce;
-                // 開啟刪除按鈕的功能
-                btnDelete.Enabled = true;
-                btnDelete.BackColor = colorBtnTrade;
-                // 開啟甜度按鈕的功能
-                pnlChoosableSugarRegion.Enabled = isChoosableSugar;
-                foreach (RadioButton rbSugar in pnlChoosableSugarRegion.Controls)
-                {
-                    rbSugar.BackColor = isChoosableSugar ? colorBtnTrade : colorBtnDisable;
-                    rbSugar.Checked = false;
-                    rbSugar.Checked = (orderDetail.Sugar == rbSugar.Text) ? true : false;
-                }
-                // 開啟冰塊按鈕的功能
-                pnlChoosableIceRegion.Enabled = isChoosableIce;
-                foreach (RadioButton rbIce in pnlChoosableIceRegion.Controls)
-                {
-                    rbIce.BackColor = isChoosableIce ? colorBtnTrade : colorBtnDisable;
-                    rbIce.Checked = (orderDetail.Ice == rbIce.Text) ? true : false;
-                }
-                // 開啟加按鈕的功能
-                btnQuantityIncrease.Enabled = true;
-                btnQuantityIncrease.BackColor = colorBtnTrade;
-                // 開啟減按鈕的功能
-                btnQuantityDecrease.Enabled = true;
-                btnQuantityDecrease.BackColor = colorBtnTrade;
-                // 開啟結帳按鈕的功能
-                btnRingUp.Enabled = true;
-                btnRingUp.BackColor = colorBtnControl;
-                // 關閉管理按鈕的功能
-                btnManage.Enabled = false;
-                btnManage.BackColor = colorBtnDisable;
-                // 關閉記錄按鈕的功能
-                btnRecord.Enabled = false;
-                btnRecord.BackColor = colorBtnDisable;
-                // 關閉登出按鈕的功能
-                btnLogout.Enabled = false;
-                btnLogout.BackColor = colorBtnDisable;
+                // 進入交易模式
+                goTradeMode();
             }
         }
 
@@ -227,41 +274,7 @@ namespace BeveragePOS
                 }
                 else
                 {
-                    // 關閉刪除按鈕的功能
-                    btnDelete.Enabled = false;
-                    btnDelete.BackColor = colorBtnDisable;
-                    // 關閉甜度按鈕的功能
-                    pnlChoosableSugarRegion.Enabled = false;
-                    foreach (RadioButton rbSugar in pnlChoosableSugarRegion.Controls)
-                    {
-                        rbSugar.BackColor = colorBtnDisable;
-                        rbSugar.Checked = false;
-                    }
-                    // 關閉冰塊按鈕的功能
-                    pnlChoosableIceRegion.Enabled = false;
-                    foreach (RadioButton rbIce in pnlChoosableIceRegion.Controls)
-                    {
-                        rbIce.BackColor = colorBtnDisable;
-                        rbIce.Checked = false;
-                    }
-                    // 關閉加按鈕的功能
-                    btnQuantityIncrease.Enabled = false;
-                    btnQuantityIncrease.BackColor = colorBtnDisable;
-                    // 關閉減按鈕的功能
-                    btnQuantityDecrease.Enabled = false;
-                    btnQuantityDecrease.BackColor = colorBtnDisable;
-                    // 關閉結帳按鈕的功能
-                    btnRingUp.Enabled = false;
-                    btnRingUp.BackColor = colorBtnDisable;
-                    // 開啟管理按鈕的功能
-                    btnManage.Enabled = true;
-                    btnManage.BackColor = colorBtnControl;
-                    // 開啟記錄按鈕的功能
-                    btnRecord.Enabled = true;
-                    btnRecord.BackColor = colorBtnControl;
-                    // 開啟登出按鈕的功能
-                    btnLogout.Enabled = true;
-                    btnLogout.BackColor = colorBtnControl;
+                    exitTradeMode();
                 }
                 // 顯示刪除操作的訊息
                 lblMessage.Text = "刪除1筆交易項目";
@@ -311,7 +324,7 @@ namespace BeveragePOS
             {
                 int index = dgvOrderDetail.SelectedRows[0].Index;
                 // 數量減一但不可小於一
-                orderDetails[index].Quantity = (orderDetails[index].Quantity == 1) ? 1 : orderDetails[index].Quantity - 1 ;
+                orderDetails[index].Quantity = (orderDetails[index].Quantity == 1) ? 1 : orderDetails[index].Quantity - 1;
             }
             // 重新計算小計
             countTotal();
@@ -337,25 +350,27 @@ namespace BeveragePOS
 
         private void btnRingUp_Click(object sender, EventArgs e)
         {
-            int number = int.Parse(lblOrderNumberContent.Text);
+            // 將訂單資料塞入資料庫
+            int orderNumber = int.Parse(lblOrderNumberContent.Text);
             OrderMaster orderMaster = new OrderMaster()
             {
                 EmployeeID = employee.ID,
-                Number = number,
-                DateTime = DateTime.Now
+                Number = orderNumber,
+                DateTime = DateTime.Now,
             };
+            orderMaster.OrderDetail.AddRange(orderDetails.ToList());
             dataContext.OrderMaster.InsertOnSubmit(orderMaster);
             dataContext.SubmitChanges();
-            int orderMasterID = ((from o in dataContext.OrderMaster where o.DateTime.Day == DateTime.Now.Day && o.Number == number select new { o.ID }).Single().ID);
-            foreach (OrderDetail orderDetail in orderDetails)
-            {
-                orderDetail.OrderMasterID = orderMasterID;
-                dataContext.OrderDetail.InsertOnSubmit(orderDetail);
-            }
-            dataContext.SubmitChanges();
+            // 重置訂單名細串列
             orderDetails.Clear();
+            // 顯示交易成功訊息
+            lblMessage.Text = "交易成功";
+            // 重新計算小計
             countTotal();
-            lblOrderNumberContent.Text = (number + 1).ToString();
+            // 增加單號
+            lblOrderNumberContent.Text = (orderNumber + 1).ToString();
+            // 離開交易模式
+            exitTradeMode();
         }
 
         private void btnManage_Click(object sender, EventArgs e)
@@ -376,26 +391,20 @@ namespace BeveragePOS
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            // 判斷是否有未完成的交易
-            if (orderDetails.Count > 0)
+            // 清空 ChangeSet
+            foreach (var insert in dataContext.GetChangeSet().Inserts)
             {
-                // 輸出錯誤訊息
-                lblMessage.Text = "尚有未完成的交易！";
+                dataContext.GetTable(insert.GetType()).DeleteOnSubmit(insert);
             }
-            // 登出
-            else
-            {
-                dataContext.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, orderDetails);
-                // 設定登出訊息
-                lblEmployeeContent.Text = "未登入";
-                lblMessage.Text = "己登出";
-                // 設定登入記錄
-                setSystemLog("登出");
-                // 關啟 Login 表單
-                Login login = new Login(this);
-                login.ShowDialog();
-                // 進入 Login 表單
-            }
+            // 設定登出訊息
+            lblEmployeeContent.Text = "未登入";
+            lblMessage.Text = "己登出";
+            // 設定登入記錄
+            setSystemLog("登出");
+            // 關啟 Login 表單
+            Login login = new Login(this);
+            login.ShowDialog();
+            // 進入 Login 表單
         }
 
         private void rbCategory_Click(object sender, EventArgs e)
@@ -403,8 +412,8 @@ namespace BeveragePOS
             // 依不同分類產生對應的飲料按鈕
             RadioButton rbCategory = sender as RadioButton;
             var results = from be in beverages where be.Category == rbCategory.Text select be;
-            SuspendLayout();
             flpBeveragesRegion.SuspendLayout();
+            SuspendLayout();
             flpBeveragesRegion.Controls.Clear();
             foreach (Beverage beverage in results)
             {
@@ -417,13 +426,13 @@ namespace BeveragePOS
                 btnBeverage.FlatStyle = FlatStyle.Flat;
                 btnBeverage.Margin = new Padding(5);
                 btnBeverage.Parent = flpBeveragesRegion;
-                btnBeverage.Size = new Size(flpBeveragesRegion.Width / 3 - 35, 50);
+                btnBeverage.Size = new Size(200, 50);
                 btnBeverage.Tag = beverage;
                 btnBeverage.Text = beverage.Name;
                 btnBeverage.UseVisualStyleBackColor = true;
             }
-            flpBeveragesRegion.ResumeLayout();
             ResumeLayout();
+            flpBeveragesRegion.ResumeLayout();
         }
 
         private void btnBeverage_Click(object sender, EventArgs e)
@@ -437,7 +446,7 @@ namespace BeveragePOS
                 Ice = beverage.IsChoosableIce ? "正常" : "熱飲",
                 Quantity = 1
             };
-            // 加入交易列表
+            // 加入交易串列
             orderDetails.Add(orderDetail);
             // 重新計算小計
             countTotal();
@@ -446,6 +455,8 @@ namespace BeveragePOS
             // 選取新增的那一筆交易項目
             dgvOrderDetail.Rows[dgvOrderDetail.RowCount - 1].Selected = true;
             dgvOrderDetail.Select();
+            // 進入交易模式
+            goTradeMode();
         }
 
         private void mouseClickTimer_Tick(object sender, EventArgs e)

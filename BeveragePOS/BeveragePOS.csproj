@@ -66,11 +66,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BeveragePOS.dbml</DependentUpon>
     </Compile>
-    <Compile Include="BeveragePOSDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BeveragePOSDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,9 +95,6 @@
     <EmbeddedResource Include="Manage.resx">
       <DependentUpon>Manage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Record.resx">
-      <DependentUpon>Record.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="BeveragePOS.dbml.layout">
       <DependentUpon>BeveragePOS.dbml</DependentUpon>
     </None>
@@ -125,17 +117,6 @@
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>BeveragePOS.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
-    </None>
-    <None Include="BeveragePOSDataSet.xsc">
-      <DependentUpon>BeveragePOSDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BeveragePOSDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BeveragePOSDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BeveragePOSDataSet.xss">
-      <DependentUpon>BeveragePOSDataSet.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
