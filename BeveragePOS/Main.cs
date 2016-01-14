@@ -11,17 +11,27 @@ namespace BeveragePOS
     public partial class Main : Form
     {
         private BeveragePOSDataContext dataContext = new BeveragePOSDataContext();
+        // 可用來當作DataGridViem資料來源的交易列表集合
         private BindingList<OrderDetail> orderDetails = new BindingList<OrderDetail>();
-        private Color colorBtnChecked = Color.FromArgb(145, 106, 94);
+        // RadioButton確認時的顏色
+        private Color colorRbChecked = Color.FromArgb(145, 106, 94);
+        // 系統按鈕的顏色
         private Color colorBtnControl = Color.FromArgb(210, 211, 154);
+        // 失效按鈕的顏色
         private Color colorBtnDisable = Color.FromArgb(220, 228, 203);
-        private Color colorBtnEnable = Color.FromArgb(112, 153, 171);
+        // 交易操作按鈕的顏色
+        private Color colorBtnTrade = Color.FromArgb(112, 153, 171);
+        // 滑鼠按下按鈕時的顏色
         private Color colorBtnMouseDown = Color.FromArgb(132, 96, 85);
+        // 滑鼠經過按鈕時的顏色
         private Color colorBtnMouseOver = Color.FromArgb(145, 106, 94);
+        // 飲料列表的集合
         private List<Beverage> beverages;
-        private bool isMouseOnBtnPlus = false;
-        private bool isMouseOnBtnMinus = false;
+        // 用來暫存數量加減的按鈕
+        private Button btnQuantity;
+        // 用以表單是否可以關閉
         private bool _isCloseable = false;
+        // 員工
         private Employee _employee = new Employee();
 
         public bool isCloseable
@@ -36,6 +46,7 @@ namespace BeveragePOS
             set { _employee = value; }
         }
 
+        // 計算小計
         private void countTotal()
         {
             int total = 0;
@@ -46,9 +57,9 @@ namespace BeveragePOS
             lblTotalContent.Text = total.ToString();
         }
 
+        // 於資料庫中取得飲料的資料
         private void getBeverages()
         {
-            // 設資料庫中取得飲料的資料
             var results = from be in dataContext.Beverage where be.IsSale == true select be;
             beverages = results.ToList();
         }
@@ -88,9 +99,9 @@ namespace BeveragePOS
             {
                 RadioButton rbCategory = new RadioButton();
                 rbCategory.Appearance = Appearance.Button;
-                rbCategory.BackColor = colorBtnEnable;
+                rbCategory.BackColor = colorBtnTrade;
                 rbCategory.Click += new EventHandler(rbCategory_Click);
-                rbCategory.FlatAppearance.CheckedBackColor = colorBtnChecked;
+                rbCategory.FlatAppearance.CheckedBackColor = colorRbChecked;
                 rbCategory.FlatAppearance.MouseDownBackColor = colorBtnMouseDown;
                 rbCategory.FlatAppearance.MouseOverBackColor = colorBtnMouseOver;
                 rbCategory.FlatStyle = FlatStyle.Flat;
@@ -160,12 +171,12 @@ namespace BeveragePOS
                 bool isChoosableIce = orderDetail.Beverage.IsChoosableIce;
                 // 開啟刪除按鈕的功能
                 btnDelete.Enabled = true;
-                btnDelete.BackColor = colorBtnEnable;
+                btnDelete.BackColor = colorBtnTrade;
                 // 開啟甜度按鈕的功能
                 pnlChoosableSugarRegion.Enabled = isChoosableSugar;
                 foreach (RadioButton rbSugar in pnlChoosableSugarRegion.Controls)
                 {
-                    rbSugar.BackColor = isChoosableSugar ? colorBtnEnable : colorBtnDisable;
+                    rbSugar.BackColor = isChoosableSugar ? colorBtnTrade : colorBtnDisable;
                     rbSugar.Checked = false;
                     rbSugar.Checked = (orderDetail.Sugar == rbSugar.Text) ? true : false;
                 }
@@ -173,15 +184,15 @@ namespace BeveragePOS
                 pnlChoosableIceRegion.Enabled = isChoosableIce;
                 foreach (RadioButton rbIce in pnlChoosableIceRegion.Controls)
                 {
-                    rbIce.BackColor = isChoosableIce ? colorBtnEnable : colorBtnDisable;
+                    rbIce.BackColor = isChoosableIce ? colorBtnTrade : colorBtnDisable;
                     rbIce.Checked = (orderDetail.Ice == rbIce.Text) ? true : false;
                 }
                 // 開啟加按鈕的功能
-                btnPlus.Enabled = true;
-                btnPlus.BackColor = colorBtnEnable;
+                btnQuantityIncrease.Enabled = true;
+                btnQuantityIncrease.BackColor = colorBtnTrade;
                 // 開啟減按鈕的功能
-                btnMinus.Enabled = true;
-                btnMinus.BackColor = colorBtnEnable;
+                btnQuantityDecrease.Enabled = true;
+                btnQuantityDecrease.BackColor = colorBtnTrade;
                 // 開啟結帳按鈕的功能
                 btnRingUp.Enabled = true;
                 btnRingUp.BackColor = colorBtnControl;
@@ -194,8 +205,6 @@ namespace BeveragePOS
                 // 關閉登出按鈕的功能
                 btnLogout.Enabled = false;
                 btnLogout.BackColor = colorBtnDisable;
-                // 顯示選取操作的訊息
-                lblMessage.Text = "選取第" + (index + 1) + "筆交易項目";
             }
         }
 
@@ -209,9 +218,10 @@ namespace BeveragePOS
                 orderDetails.RemoveAt(dgvOrderDetail.SelectedRows[0].Index);
                 // 計算小計
                 countTotal();
+                // 判斷是否有未完成的交易
                 if (dgvOrderDetail.Rows.Count > 0)
                 {
-                    // 選取另一筆交易項目
+                    // 選取餘下的最後一筆交易項目
                     dgvOrderDetail.Rows[dgvOrderDetail.Rows.Count - 1].Selected = true;
                     dgvOrderDetail.Select();
                 }
@@ -235,11 +245,11 @@ namespace BeveragePOS
                         rbIce.Checked = false;
                     }
                     // 關閉加按鈕的功能
-                    btnPlus.Enabled = false;
-                    btnPlus.BackColor = colorBtnDisable;
+                    btnQuantityIncrease.Enabled = false;
+                    btnQuantityIncrease.BackColor = colorBtnDisable;
                     // 關閉減按鈕的功能
-                    btnMinus.Enabled = false;
-                    btnMinus.BackColor = colorBtnDisable;
+                    btnQuantityDecrease.Enabled = false;
+                    btnQuantityDecrease.BackColor = colorBtnDisable;
                     // 關閉結帳按鈕的功能
                     btnRingUp.Enabled = false;
                     btnRingUp.BackColor = colorBtnDisable;
@@ -280,57 +290,49 @@ namespace BeveragePOS
             lblMessage.Text = "";
         }
 
-        private void btnPlus_Click(object sender, EventArgs e)
+        private void btnQuantityIncrease_Click(object sender, EventArgs e)
         {
             // 判斷是否選中交易項目
             if (dgvOrderDetail.SelectedRows.Count > 0)
             {
+                // 數量加一
                 orderDetails[dgvOrderDetail.SelectedRows[0].Index].Quantity += 1;
             }
+            // 重新計算小計
             countTotal();
+            // 清空訊息
             lblMessage.Text = "";
         }
 
-        private void btnMinus_Click(object sender, EventArgs e)
+        private void btnQuantityDecrease_Click(object sender, EventArgs e)
         {
             // 判斷是否選中交易項目
             if (dgvOrderDetail.SelectedRows.Count > 0)
             {
-                if (orderDetails[dgvOrderDetail.SelectedRows[0].Index].Quantity == 1)
-                {
-                    orderDetails[dgvOrderDetail.SelectedRows[0].Index].Quantity = 1;
-                }
-                else
-                {
-                    orderDetails[dgvOrderDetail.SelectedRows[0].Index].Quantity -= 1;
-                }
+                int index = dgvOrderDetail.SelectedRows[0].Index;
+                // 數量減一但不可小於一
+                orderDetails[index].Quantity = (orderDetails[index].Quantity == 1) ? 1 : orderDetails[index].Quantity - 1 ;
             }
+            // 重新計算小計
             countTotal();
+            // 清空訊息
             lblMessage.Text = "";
         }
 
-        private void btnPlus_MouseDown(object sender, MouseEventArgs e)
+        private void btnQuantity_MouseDown(object sender, MouseEventArgs e)
         {
-            isMouseOnBtnPlus = true;
+            // 開啟計時器
             mouseClickTimer.Enabled = true;
+            // 指定正在執行的按鈕
+            btnQuantity = sender as Button;
         }
 
-        private void btnPlus_MouseUp(object sender, MouseEventArgs e)
+        private void btnQuantity_MouseUp(object sender, MouseEventArgs e)
         {
-            isMouseOnBtnPlus = false;
+            // 關閉計時器
             mouseClickTimer.Enabled = false;
-        }
-
-        private void btnMinus_MouseDown(object sender, MouseEventArgs e)
-        {
-            isMouseOnBtnMinus = true;
-            mouseClickTimer.Enabled = true;
-        }
-
-        private void btnMinus_MouseUp(object sender, MouseEventArgs e)
-        {
-            isMouseOnBtnMinus = false;
-            mouseClickTimer.Enabled = false;
+            // 指定正在執行的按鈕
+            btnQuantity = sender as Button;
         }
 
         private void btnRingUp_Click(object sender, EventArgs e)
@@ -358,29 +360,41 @@ namespace BeveragePOS
 
         private void btnManage_Click(object sender, EventArgs e)
         {
+            // 關啟 Manage 表單
             Manage manage = new Manage();
             manage.ShowDialog();
+            // 進入 Manage 表單
         }
 
         private void btnRecord_Click(object sender, EventArgs e)
         {
+            // 關啟 Record 表單
             Record record = new Record();
             record.ShowDialog();
+            // 進入 Record 表單
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            // 判斷是否有未完成的交易
             if (orderDetails.Count > 0)
             {
+                // 輸出錯誤訊息
                 lblMessage.Text = "尚有未完成的交易！";
             }
+            // 登出
             else
             {
+                dataContext.Refresh(System.Data.Linq.RefreshMode.OverwriteCurrentValues, orderDetails);
+                // 設定登出訊息
                 lblEmployeeContent.Text = "未登入";
                 lblMessage.Text = "己登出";
+                // 設定登入記錄
                 setSystemLog("登出");
+                // 關啟 Login 表單
                 Login login = new Login(this);
                 login.ShowDialog();
+                // 進入 Login 表單
             }
         }
 
@@ -395,9 +409,9 @@ namespace BeveragePOS
             foreach (Beverage beverage in results)
             {
                 Button btnBeverage = new Button();
-                btnBeverage.BackColor = colorBtnEnable;
+                btnBeverage.BackColor = colorBtnTrade;
                 btnBeverage.Click += new EventHandler(btnBeverage_Click);
-                btnBeverage.FlatAppearance.CheckedBackColor = colorBtnChecked;
+                btnBeverage.FlatAppearance.CheckedBackColor = colorRbChecked;
                 btnBeverage.FlatAppearance.MouseDownBackColor = colorBtnMouseDown;
                 btnBeverage.FlatAppearance.MouseOverBackColor = colorBtnMouseOver;
                 btnBeverage.FlatStyle = FlatStyle.Flat;
@@ -410,50 +424,34 @@ namespace BeveragePOS
             }
             flpBeveragesRegion.ResumeLayout();
             ResumeLayout();
-            // 清空訊息
-            lblMessage.Text = "";
         }
 
         private void btnBeverage_Click(object sender, EventArgs e)
         {
-            OrderDetail orderDetail = new OrderDetail();
-            orderDetail.Beverage = (sender as Button).Tag as Beverage;
-            orderDetail.Quantity = 1;
-            if (!orderDetail.Beverage.IsChoosableSugar)
+            Beverage beverage = (sender as Button).Tag as Beverage;
+            // 新增一筆交易項目
+            OrderDetail orderDetail = new OrderDetail()
             {
-                orderDetail.Sugar = "固定";
-            }
-            else
-            {
-                orderDetail.Sugar = "全糖";
-                rbFullSugar.Checked = true;
-            }
-            if (!orderDetail.Beverage.IsChoosableIce)
-            {
-                orderDetail.Ice = "熱飲";
-            }
-            else
-            {
-                orderDetail.Ice = "正常";
-                rbMoreIce.Checked = true;
-            }
+                Beverage = beverage,
+                Sugar = beverage.IsChoosableSugar ? "全糖" : "固定",
+                Ice = beverage.IsChoosableIce ? "正常" : "熱飲",
+                Quantity = 1
+            };
+            // 加入交易列表
             orderDetails.Add(orderDetail);
-            lblMessage.Text = "新增1筆交易項目";
+            // 重新計算小計
             countTotal();
+            // 顯示新增操作的訊息
+            lblMessage.Text = "新增1筆交易項目";
+            // 選取新增的那一筆交易項目
             dgvOrderDetail.Rows[dgvOrderDetail.RowCount - 1].Selected = true;
             dgvOrderDetail.Select();
         }
 
         private void mouseClickTimer_Tick(object sender, EventArgs e)
         {
-            if (isMouseOnBtnPlus)
-            {
-                btnPlus.PerformClick();
-            }
-            if (isMouseOnBtnMinus)
-            {
-                btnMinus.PerformClick();
-            }
+            // 每次計數時點擊按鈕
+            btnQuantity.PerformClick();
         }
 
         private void timeTimer_Tick(object sender, EventArgs e)

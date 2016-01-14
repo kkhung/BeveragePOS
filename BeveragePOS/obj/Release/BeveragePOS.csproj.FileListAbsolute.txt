@@ -1,0 +1,14 @@
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\bin\Release\BeveragePOS.exe.config
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\bin\Release\BeveragePOS.mdf
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\bin\Release\BeveragePOS_log.ldf
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\bin\Release\BeveragePOS.exe
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\bin\Release\BeveragePOS.pdb
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Release\BeveragePOS.Manage.resources
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Release\BeveragePOS.Record.resources
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Release\BeveragePOS.Login.resources
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Release\BeveragePOS.Main.resources
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Release\BeveragePOS.Properties.Resources.resources
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Release\BeveragePOS.csproj.GenerateResource.Cache
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Release\BeveragePOS.exe
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Release\BeveragePOS.pdb
+C:\Users\iii\Dropbox\Projects\BeveragePOS\BeveragePOS\obj\Release\BeveragePOS.csprojResolveAssemblyReference.cache

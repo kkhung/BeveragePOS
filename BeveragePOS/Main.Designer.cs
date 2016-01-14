@@ -57,8 +57,8 @@
             this.lblTotalTitle = new System.Windows.Forms.Label();
             this.lblTotalContent = new System.Windows.Forms.Label();
             this.lblDollar = new System.Windows.Forms.Label();
-            this.btnPlus = new System.Windows.Forms.Button();
-            this.btnMinus = new System.Windows.Forms.Button();
+            this.btnQuantityIncrease = new System.Windows.Forms.Button();
+            this.btnQuantityDecrease = new System.Windows.Forms.Button();
             this.mouseClickTimer = new System.Windows.Forms.Timer(this.components);
             this.lblOrderNumberTitle = new System.Windows.Forms.Label();
             this.lblOrderNumberContent = new System.Windows.Forms.Label();
@@ -471,39 +471,39 @@
             this.lblDollar.Text = "元";
             this.lblDollar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnPlus
+            // btnQuantityIncrease
             // 
-            this.btnPlus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
-            this.btnPlus.Enabled = false;
-            this.btnPlus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
-            this.btnPlus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
-            this.btnPlus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPlus.Location = new System.Drawing.Point(411, 26);
-            this.btnPlus.Name = "btnPlus";
-            this.btnPlus.Size = new System.Drawing.Size(75, 50);
-            this.btnPlus.TabIndex = 15;
-            this.btnPlus.Text = "加";
-            this.btnPlus.UseVisualStyleBackColor = false;
-            this.btnPlus.Click += new System.EventHandler(this.btnPlus_Click);
-            this.btnPlus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnPlus_MouseDown);
-            this.btnPlus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnPlus_MouseUp);
+            this.btnQuantityIncrease.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
+            this.btnQuantityIncrease.Enabled = false;
+            this.btnQuantityIncrease.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
+            this.btnQuantityIncrease.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
+            this.btnQuantityIncrease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuantityIncrease.Location = new System.Drawing.Point(411, 26);
+            this.btnQuantityIncrease.Name = "btnQuantityIncrease";
+            this.btnQuantityIncrease.Size = new System.Drawing.Size(75, 50);
+            this.btnQuantityIncrease.TabIndex = 15;
+            this.btnQuantityIncrease.Text = "加";
+            this.btnQuantityIncrease.UseVisualStyleBackColor = false;
+            this.btnQuantityIncrease.Click += new System.EventHandler(this.btnQuantityIncrease_Click);
+            this.btnQuantityIncrease.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnQuantity_MouseDown);
+            this.btnQuantityIncrease.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnQuantity_MouseUp);
             // 
-            // btnMinus
+            // btnQuantityDecrease
             // 
-            this.btnMinus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
-            this.btnMinus.Enabled = false;
-            this.btnMinus.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
-            this.btnMinus.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
-            this.btnMinus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinus.Location = new System.Drawing.Point(411, 76);
-            this.btnMinus.Name = "btnMinus";
-            this.btnMinus.Size = new System.Drawing.Size(75, 50);
-            this.btnMinus.TabIndex = 15;
-            this.btnMinus.Text = "減";
-            this.btnMinus.UseVisualStyleBackColor = false;
-            this.btnMinus.Click += new System.EventHandler(this.btnMinus_Click);
-            this.btnMinus.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnMinus_MouseDown);
-            this.btnMinus.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnMinus_MouseUp);
+            this.btnQuantityDecrease.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(228)))), ((int)(((byte)(203)))));
+            this.btnQuantityDecrease.Enabled = false;
+            this.btnQuantityDecrease.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(96)))), ((int)(((byte)(85)))));
+            this.btnQuantityDecrease.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(145)))), ((int)(((byte)(106)))), ((int)(((byte)(94)))));
+            this.btnQuantityDecrease.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuantityDecrease.Location = new System.Drawing.Point(411, 76);
+            this.btnQuantityDecrease.Name = "btnQuantityDecrease";
+            this.btnQuantityDecrease.Size = new System.Drawing.Size(75, 50);
+            this.btnQuantityDecrease.TabIndex = 15;
+            this.btnQuantityDecrease.Text = "減";
+            this.btnQuantityDecrease.UseVisualStyleBackColor = false;
+            this.btnQuantityDecrease.Click += new System.EventHandler(this.btnQuantityDecrease_Click);
+            this.btnQuantityDecrease.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnQuantity_MouseDown);
+            this.btnQuantityDecrease.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnQuantity_MouseUp);
             // 
             // mouseClickTimer
             // 
@@ -604,8 +604,8 @@
             this.pnlFavorAndQuantityRegion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlFavorAndQuantityRegion.Controls.Add(this.pnlChoosableSugarRegion);
             this.pnlFavorAndQuantityRegion.Controls.Add(this.pnlChoosableIceRegion);
-            this.pnlFavorAndQuantityRegion.Controls.Add(this.btnMinus);
-            this.pnlFavorAndQuantityRegion.Controls.Add(this.btnPlus);
+            this.pnlFavorAndQuantityRegion.Controls.Add(this.btnQuantityDecrease);
+            this.pnlFavorAndQuantityRegion.Controls.Add(this.btnQuantityIncrease);
             this.pnlFavorAndQuantityRegion.Location = new System.Drawing.Point(30, 396);
             this.pnlFavorAndQuantityRegion.Name = "pnlFavorAndQuantityRegion";
             this.pnlFavorAndQuantityRegion.Size = new System.Drawing.Size(512, 152);
@@ -694,8 +694,8 @@
         private System.Windows.Forms.Label lblTotalTitle;
         private System.Windows.Forms.Label lblTotalContent;
         private System.Windows.Forms.Label lblDollar;
-        private System.Windows.Forms.Button btnPlus;
-        private System.Windows.Forms.Button btnMinus;
+        private System.Windows.Forms.Button btnQuantityIncrease;
+        private System.Windows.Forms.Button btnQuantityDecrease;
         private System.Windows.Forms.Timer mouseClickTimer;
         private System.Windows.Forms.Label lblOrderNumberTitle;
         private System.Windows.Forms.Label lblOrderNumberContent;
