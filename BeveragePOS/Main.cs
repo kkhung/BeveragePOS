@@ -60,7 +60,7 @@ namespace BeveragePOS
         private void createRbCategory()
         {
             // 取得飲料的分類並產生按鈕
-            var results = from be in beverages select be.Category;
+            var results = from b in beverages select b.Category;
             foreach (string category in results.Distinct())
             {
                 RadioButton rbCategory = new RadioButton();
@@ -81,17 +81,17 @@ namespace BeveragePOS
         }
 
         // 於資料庫中取得飲料的資料
-        private void getBeverages()
+        private List<Beverage> getBeverages()
         {
-            var results = from be in dataContext.Beverage where be.IsSale == true select be;
-            beverages = results.ToList();
+            var results = from b in dataContext.Beverage where b.IsSale == true select b;
+            return results.ToList();
         }
 
-        private void getOrderNumber()
+        private int getOrderNumber()
         {
             // 從資料庫中找出並接續之前的單號，每天會重新計數
-            var results = from or in dataContext.OrderMaster where or.DateTime.Day == DateTime.Now.Day select or.Number;
-            lblOrderNumberContent.Text = (results.Count() > 0) ? (results.Max() + 1).ToString() : "1";
+            var results = from om in dataContext.OrderMaster where om.DateTime.Day == DateTime.Now.Day select om.Number;
+            return (results.Count() > 0) ? (results.Max() + 1) : 1;
         }
 
         private void goTradeMode()
@@ -220,8 +220,8 @@ namespace BeveragePOS
         private void Main_Load(object sender, EventArgs e)
         {
             // 自訂初始化開始
-            getBeverages();
-            getOrderNumber();
+            beverages = getBeverages();
+            lblOrderNumberContent.Text = getOrderNumber().ToString();
             flpCatelogiesRegion.SuspendLayout();
             SuspendLayout();
             initialDgvOrderDetail();
@@ -350,7 +350,6 @@ namespace BeveragePOS
 
         private void btnRingUp_Click(object sender, EventArgs e)
         {
-            // 將訂單資料塞入資料庫
             int orderNumber = int.Parse(lblOrderNumberContent.Text);
             OrderMaster orderMaster = new OrderMaster()
             {
@@ -359,6 +358,15 @@ namespace BeveragePOS
                 DateTime = DateTime.Now,
             };
             orderMaster.OrderDetail.AddRange(orderDetails.ToList());
+            // 清空 ChangeSet
+            foreach (var insert in dataContext.GetChangeSet().Inserts)
+            {
+                if (!orderDetails.Contains(insert))
+                {
+                    dataContext.GetTable(insert.GetType()).DeleteOnSubmit(insert);
+                }
+            }
+            // 將訂單資料塞入資料庫
             dataContext.OrderMaster.InsertOnSubmit(orderMaster);
             dataContext.SubmitChanges();
             // 重置訂單名細串列
@@ -391,14 +399,14 @@ namespace BeveragePOS
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
+            // 設定登出訊息
+            lblEmployeeContent.Text = "未登入";
+            lblMessage.Text = "己登出";
             // 清空 ChangeSet
             foreach (var insert in dataContext.GetChangeSet().Inserts)
             {
                 dataContext.GetTable(insert.GetType()).DeleteOnSubmit(insert);
             }
-            // 設定登出訊息
-            lblEmployeeContent.Text = "未登入";
-            lblMessage.Text = "己登出";
             // 設定登入記錄
             setSystemLog("登出");
             // 關啟 Login 表單
@@ -411,7 +419,7 @@ namespace BeveragePOS
         {
             // 依不同分類產生對應的飲料按鈕
             RadioButton rbCategory = sender as RadioButton;
-            var results = from be in beverages where be.Category == rbCategory.Text select be;
+            var results = from b in beverages where b.Category == rbCategory.Text select b;
             flpBeveragesRegion.SuspendLayout();
             SuspendLayout();
             flpBeveragesRegion.Controls.Clear();

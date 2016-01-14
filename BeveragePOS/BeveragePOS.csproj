@@ -95,6 +95,9 @@
     <EmbeddedResource Include="Manage.resx">
       <DependentUpon>Manage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Record.resx">
+      <DependentUpon>Record.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="BeveragePOS.dbml.layout">
       <DependentUpon>BeveragePOS.dbml</DependentUpon>
     </None>
